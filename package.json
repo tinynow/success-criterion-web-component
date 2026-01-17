@@ -1,6 +1,7 @@
 {
   "name": "success-criterion",
   "version": "1.0.0",
+  "type": "module",
   "description": "A web component for displaying WCAG success criteria",
   "main": "success-criterion.js",
   "license": "MIT",
@@ -16,7 +17,12 @@
     "success-criteria"
   ],
   "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:watch": "node --test --watch test/*.test.js",
     "update-data": "node scripts/update-wcag-data.js",
     "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
   }
 }
