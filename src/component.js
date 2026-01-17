@@ -42,12 +42,18 @@ class SuccessCriterion extends HTMLElement {
         }).join('');
 
         const styles = `
-        :host { display: contents; }
+        :host {
+            --sc-select-padding: 0.25em 0.5em;
+            --sc-select-radius: 3px;
+
+            display: contents;
+        }
         select {
             font: inherit;
-            padding: 0.25em 0.5em;
+            color: inherit;
+            padding: var(--sc-select-padding);
             border: 1px solid currentColor;
-            border-radius: 3px;
+            border-radius: var(--sc-select-radius);
             background: transparent;
             cursor: pointer;
         }
@@ -79,54 +85,57 @@ class SuccessCriterion extends HTMLElement {
 
         const styles = `
         :host {
-            --sc-font-size: 16px;
-            --sc-font-family: sans-serif;
-            --sc-bg-dark: #333;
-            --sc-bg-light: #efefef;
+            --sc-title-size: 1.125em;
+            --sc-level-size: 0.625em;
+            --sc-level-padding: 1px 4px;
+            --sc-level-radius: 3px;
+            --sc-icon-size: 0.75em;
+            --sc-spacing: 0.5em;
+            --sc-indent: 1em;
+            --sc-gap: 1em;
 
             display: contents;
-            font-family: var(--sc-font-family);
-            font-size: var(--sc-font-size);
-            line-height: 1.5;
+            font: inherit;
+            line-height: inherit;
+            color: inherit;
         }
-        * {
-            margin: 0;
-            padding: 0;
+        a {
+            color: inherit;
         }
         dl {
-            margin-block: 0.5em;
+            margin-block: var(--sc-spacing);
         }
         dt {
             font-weight: bold;
-            margin-top: 0.5em;
+            margin-top: var(--sc-spacing);
         }
         dd {
-            margin-inline-start: 1em;
+            margin-inline-start: var(--sc-indent);
         }
         .sc-title {
             font-weight: bold;
-            font-size: 1.125em;
+            font-size: var(--sc-title-size);
         }
         .sc-level {
-            font-size: .625em;
+            font-size: var(--sc-level-size);
             font-weight: normal;
-            padding: 1px 4px;
+            padding: var(--sc-level-padding);
             border: 1px solid currentColor;
-            border-radius: 3px;
+            border-radius: var(--sc-level-radius);
             vertical-align: middle;
         }
         .sc-description {
-            margin-block: 0.5em;
+            margin-block: var(--sc-spacing);
         }
         .sc-link-icon {
-            width: 0.75em;
-            height: 0.75em;
+            width: var(--sc-icon-size);
+            height: var(--sc-icon-size);
             vertical-align: baseline;
         }
         .references {
-            margin-top: 1em;
+            margin-top: var(--sc-gap);
             display: flex;
-            gap: 1em;
+            gap: var(--sc-gap);
             flex-wrap: wrap;
         }
         .references a {

@@ -50,6 +50,28 @@ import 'success-criterion'
 - **simple**: Inline link with SC number and title
 - **tiny**: Minimal inline link with just the SC number
 
+### Styling
+
+The component inherits `font`, `line-height`, and `color` from its parent. All other values can be customized with CSS custom properties:
+
+```css
+success-criterion {
+  /* Detailed mode */
+  --sc-title-size: 1.125em;
+  --sc-level-size: 0.625em;
+  --sc-level-padding: 1px 4px;
+  --sc-level-radius: 3px;
+  --sc-icon-size: 0.75em;
+  --sc-spacing: 0.5em;
+  --sc-indent: 1em;
+  --sc-gap: 1em;
+
+  /* Picker (when no data-number) */
+  --sc-select-padding: 0.25em 0.5em;
+  --sc-select-radius: 3px;
+}
+```
+
 ## Development
 
 ```bash
