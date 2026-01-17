@@ -4,7 +4,17 @@
   "description": "A web component for displaying WCAG success criteria",
   "main": "success-criterion.js",
   "license": "MIT",
-  "homepage": "https://codepen.io/tinynow/pen/WNVVyJZ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tinynow/success-criterion-web-component.git"
+  },
+  "keywords": [
+    "wcag",
+    "accessibility",
+    "a11y",
+    "web-component",
+    "success-criteria"
+  ],
   "scripts": {
     "update-data": "node scripts/update-wcag-data.js",
     "serve": "npx serve ."
