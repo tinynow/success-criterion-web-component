@@ -57,14 +57,14 @@ The component inherits `font`, `line-height`, and `color` from its parent. All o
 ```css
 success-criterion {
   /* Detailed mode */
-  --sc-title-size: 1.125em;
-  --sc-level-size: 0.625em;
-  --sc-level-padding: 1px 4px;
-  --sc-level-radius: 3px;
-  --sc-icon-size: 0.75em;
-  --sc-spacing: 0.5em;
-  --sc-indent: 1em;
-  --sc-gap: 1em;
+  --sc-title-size: 1.125em;       /* Title font size */
+  --sc-level-size: 0.625em;       /* Conformance level badge font size */
+  --sc-level-padding: 1px 4px;    /* Conformance level badge padding */
+  --sc-level-radius: 3px;         /* Conformance level badge border radius */
+  --sc-icon-size: 0.75em;         /* External link icon size */
+  --sc-spacing: 0.5em;            /* Vertical spacing */
+  --sc-indent: 1em;               /* Definition list indent */
+  --sc-gap: 1em;                  /* Reference links gap */
 
   /* Picker (when no data-number) */
   --sc-select-padding: 0.25em 0.5em;
