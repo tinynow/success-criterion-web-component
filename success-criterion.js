@@ -1483,15 +1483,49 @@ class SuccessCriterion extends HTMLElement {
         if (name === "data-mode" && oldValue !== newValue) {
             this.mode = newValue;
         }
-        if (oldValue !== null && oldValue !== newValue) {
+        if (oldValue !== newValue && this.isConnected) {
             this.render();
         }
+    }
+
+    renderPicker() {
+        const options = WCAG_DATA.map(item => {
+            const label = this.mode === 'tiny'
+                ? item.num
+                : `${item.num} ${item.handle}`;
+            return `<option value="${item.num}">${label}</option>`;
+        }).join('');
+
+        const styles = `
+        :host { display: contents; }
+        select {
+            font: inherit;
+            padding: 0.25em 0.5em;
+            border: 1px solid currentColor;
+            border-radius: 3px;
+            background: transparent;
+            cursor: pointer;
+        }
+        `;
+
+        this.shadowRoot.innerHTML = `
+            <style>${styles}</style>
+            <select>
+                <option value="">Select criterion…</option>
+                ${options}
+            </select>`;
+
+        this.shadowRoot.querySelector('select').addEventListener('change', (e) => {
+            if (e.target.value) {
+                this.setAttribute('data-number', e.target.value);
+            }
+        });
     }
 
     render() {
         const c = this.criterion;
         if (!c) {
-            this.shadowRoot.innerHTML = '';
+            this.renderPicker();
             return;
         }
 

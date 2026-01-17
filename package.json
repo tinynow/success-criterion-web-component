@@ -19,7 +19,7 @@
   "scripts": {
     "test": "node --test test/*.test.js",
     "test:watch": "node --test --watch test/*.test.js",
-    "update-data": "node scripts/update-wcag-data.js",
+    "update-data": "node scripts/update-wcag-data.cjs",
     "serve": "npx serve ."
   },
   "devDependencies": {

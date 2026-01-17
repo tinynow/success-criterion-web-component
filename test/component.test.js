@@ -277,26 +277,93 @@ describe('SuccessCriterion Web Component', () => {
     });
 
     describe('Edge Cases', () => {
-        describe('Missing or Invalid Data', () => {
-            it('should render empty shadow root when no data-number', () => {
+        describe('Criterion Picker (no data-number)', () => {
+            it('should render select picker when no data-number', () => {
                 const el = document.createElement('success-criterion');
                 document.body.appendChild(el);
 
-                assert.strictEqual(el.shadowRoot.innerHTML.trim(), '');
+                const select = el.shadowRoot.querySelector('select');
+                assert.ok(select, 'Should have select element');
             });
 
-            it('should render empty shadow root for invalid criterion number', () => {
+            it('should render select picker for invalid criterion number', () => {
                 const el = createElement(document, { 'data-number': 'invalid' });
                 document.body.appendChild(el);
 
-                assert.strictEqual(el.shadowRoot.innerHTML.trim(), '');
+                const select = el.shadowRoot.querySelector('select');
+                assert.ok(select, 'Should have select element');
             });
 
-            it('should render empty for number that does not exist', () => {
+            it('should render select picker for number that does not exist', () => {
                 const el = createElement(document, { 'data-number': '99.99.99' });
                 document.body.appendChild(el);
 
-                assert.strictEqual(el.shadowRoot.innerHTML.trim(), '');
+                const select = el.shadowRoot.querySelector('select');
+                assert.ok(select, 'Should have select element');
+            });
+
+            it('should have placeholder option', () => {
+                const el = document.createElement('success-criterion');
+                document.body.appendChild(el);
+
+                const firstOption = el.shadowRoot.querySelector('select option');
+                assert.strictEqual(firstOption.value, '');
+                assert.ok(firstOption.textContent.includes('Select'));
+            });
+
+            it('should list all WCAG criteria as options', () => {
+                const el = document.createElement('success-criterion');
+                document.body.appendChild(el);
+
+                const options = el.shadowRoot.querySelectorAll('select option');
+                // 87 criteria + 1 placeholder
+                assert.ok(options.length > 80, 'Should have many options');
+            });
+
+            it('should show number + handle in default mode options', () => {
+                const el = document.createElement('success-criterion');
+                document.body.appendChild(el);
+
+                const options = el.shadowRoot.querySelectorAll('select option');
+                // Skip placeholder (first option)
+                const firstCriterion = options[1];
+                assert.ok(firstCriterion.textContent.includes('1.1.1'));
+                assert.ok(firstCriterion.textContent.includes('Non-text Content'));
+            });
+
+            it('should show only number in tiny mode options', () => {
+                const el = createElement(document, { 'data-mode': 'tiny' });
+                document.body.appendChild(el);
+
+                const options = el.shadowRoot.querySelectorAll('select option');
+                // Skip placeholder (first option)
+                const firstCriterion = options[1];
+                assert.strictEqual(firstCriterion.textContent, '1.1.1');
+            });
+
+            it('should set data-number when option selected', () => {
+                const el = document.createElement('success-criterion');
+                document.body.appendChild(el);
+
+                const select = el.shadowRoot.querySelector('select');
+                select.value = '1.4.3';
+                select.dispatchEvent(new window.Event('change', { bubbles: true }));
+
+                assert.strictEqual(el.getAttribute('data-number'), '1.4.3');
+            });
+
+            it('should render criterion after selection', () => {
+                const el = document.createElement('success-criterion');
+                document.body.appendChild(el);
+
+                const select = el.shadowRoot.querySelector('select');
+                select.value = '1.4.3';
+                select.dispatchEvent(new window.Event('change', { bubbles: true }));
+
+                // After setting data-number, the component should re-render
+                const title = el.shadowRoot.querySelector('.sc-title');
+                assert.ok(title, 'Should render criterion after selection');
+                assert.ok(title.textContent.includes('Contrast'));
             });
         });
 
