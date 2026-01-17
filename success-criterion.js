@@ -1,2472 +1,1457 @@
 const WCAG_DATA = [
   {
-    "ref_id": "1",
-    "title": "Perceivable",
-    "description": "Information and user interface components must be presentable to users in ways they can perceive.",
-    "url": "https://www.w3.org/TR/WCAG22/#perceivable",
-    "guidelines": [
+    "num": "1.1.1",
+    "id": "non-text-content",
+    "handle": "Non-text Content",
+    "level": "A",
+    "title": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.",
+    "details": [
       {
-        "ref_id": "1.1",
-        "title": "Text Alternatives",
-        "description": "Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.",
-        "url": "https://www.w3.org/TR/WCAG22/#text-alternatives",
-        "references": [
+        "type": "ulist",
+        "items": [
           {
-            "title": "Understanding Guideline 1.1",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-alternatives.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "1.1.1",
-            "title": "Non-text Content",
-            "description": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose, except for the situations listed below.",
-            "url": "https://www.w3.org/TR/WCAG22/#non-text-content",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Controls, Input",
-                "description": "If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Guideline 4.1 for additional requirements for controls and content that accepts user input.)"
-              },
-              {
-                "type": "exception",
-                "title": "Time-based Media",
-                "description": "If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.)"
-              },
-              {
-                "type": "exception",
-                "title": "Test",
-                "description": "If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content."
-              },
-              {
-                "type": "exception",
-                "title": "Sensory",
-                "description": "If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content."
-              },
-              {
-                "type": "exception",
-                "title": "CAPTCHA",
-                "description": "If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities."
-              },
-              {
-                "type": "exception",
-                "title": "Decoration, Formatting, Invisible",
-                "description": "If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#non-text-content"
-              },
-              {
-                "title": "Understanding 1.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-content.html"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "ref_id": "1.2",
-        "title": "Time-based Media",
-        "description": "Provide alternatives for time-based media.",
-        "url": "https://www.w3.org/TR/WCAG22/#time-based-media",
-        "references": [
-          {
-            "title": "Understanding Guideline 1.2",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/time-based-media.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "1.2.1",
-            "title": "Audio-only and Video-only (Prerecorded)",
-            "description": "For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such.",
-            "url": "https://www.w3.org/TR/WCAG22/#audio-only-and-video-only-prerecorded",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "Prerecorded Audio-only",
-                "description": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
-              },
-              {
-                "type": "all_true",
-                "title": "Prerecorded Video-only",
-                "description": "Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#audio-only-and-video-only-prerecorded"
-              },
-              {
-                "title": "Understanding 1.2.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-and-video-only-prerecorded.html"
-              }
-            ]
+            "handle": "Controls, Input",
+            "text": "If non-text content is a control or accepts user input, then it has a name that describes its purpose. (Refer to Success Criterion 4.1.2 for additional requirements for controls and content that accepts user input.)"
           },
           {
-            "ref_id": "1.2.2",
-            "title": "Captions (Prerecorded)",
-            "description": "Captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
-            "url": "https://www.w3.org/TR/WCAG22/#captions-prerecorded",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#captions-prerecorded"
-              },
-              {
-                "title": "Understanding 1.2.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html"
-              }
-            ]
+            "handle": "Time-Based Media",
+            "text": "If non-text content is time-based media, then text alternatives at least provide descriptive identification of the non-text content. (Refer to Guideline 1.2 for additional requirements for media.)"
           },
           {
-            "ref_id": "1.2.3",
-            "title": "Audio Description or Media Alternative (Prerecorded)",
-            "description": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
-            "url": "https://www.w3.org/TR/WCAG22/#audio-description-or-media-alternative-prerecorded",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#audio-description-or-media-alternative-prerecorded"
-              },
-              {
-                "title": "Understanding 1.2.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-or-media-alternative-prerecorded.html"
-              }
-            ]
+            "handle": "Test",
+            "text": "If non-text content is a test or exercise that would be invalid if presented in text, then text alternatives at least provide descriptive identification of the non-text content."
           },
           {
-            "ref_id": "1.2.4",
-            "title": "Captions (Live)",
-            "description": "Captions are provided for all live audio content in synchronized media.",
-            "url": "https://www.w3.org/TR/WCAG22/#captions-live",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-live.html"
-              },
-              {
-                "title": "Understanding 1.2.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-live.html"
-              }
-            ]
+            "handle": "Sensory",
+            "text": "If non-text content is primarily intended to create a specific sensory experience, then text alternatives at least provide descriptive identification of the non-text content."
           },
           {
-            "ref_id": "1.2.5",
-            "title": "Audio Description (Prerecorded)",
-            "description": "Audio description is provided for all prerecorded video content in synchronized media.",
-            "url": "https://www.w3.org/TR/WCAG22/#audio-description-prerecorded",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#audio-description-prerecorded"
-              },
-              {
-                "title": "Understanding 1.2.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-description-prerecorded.html"
-              }
-            ]
+            "handle": "CAPTCHA",
+            "text": "If the purpose of non-text content is to confirm that content is being accessed by a person rather than a computer, then text alternatives that identify and describe the purpose of the non-text content are provided, and alternative forms of CAPTCHA using output modes for different types of sensory perception are provided to accommodate different disabilities."
           },
           {
-            "ref_id": "1.2.6",
-            "title": "Sign Language (Prerecorded)",
-            "description": "Sign language interpretation is provided for all prerecorded audio content in synchronized media.",
-            "url": "https://www.w3.org/TR/WCAG22/#sign-language-prerecorded",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#sign-language-prerecorded"
-              },
-              {
-                "title": "Understanding 1.2.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/sign-language-prerecorded.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.2.7",
-            "title": "Extended Audio Description (Prerecorded)",
-            "description": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video, extended audio description is provided for all prerecorded video content in synchronized media.",
-            "url": "https://www.w3.org/TR/WCAG22/#extended-audio-description-prerecorded",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.7",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#extended-audio-description-prerecorded"
-              },
-              {
-                "title": "Understanding 1.2.7",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/extended-audio-description-prerecorded.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.2.8",
-            "title": "Media Alternative (Prerecorded)",
-            "description": "An alternative for time-based media is provided for all prerecorded synchronized media and for all prerecorded video-only media.",
-            "url": "https://www.w3.org/TR/WCAG22/#media-alternative-prerecorded",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.8",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#media-alternative-prerecorded"
-              },
-              {
-                "title": "Understanding 1.2.8",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/media-alternative-prerecorded.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.2.9",
-            "title": "Audio-only (Live)",
-            "description": " An alternative for time-based media that presents equivalent information for live audio-only content is provided.",
-            "url": "https://www.w3.org/TR/WCAG22/#audio-only-live",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.2.9",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#audio-only-live"
-              },
-              {
-                "title": "Understanding 1.2.9",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-only-live.html"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "ref_id": "1.3",
-        "title": "Adaptable",
-        "description": "Create content that can be presented in different ways (for example simpler layout) without losing information or structure.",
-        "url": "https://www.w3.org/TR/WCAG22/#adaptable",
-        "references": [
-          {
-            "title": "Understanding Guideline 1.3",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/adaptable.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "1.3.1",
-            "title": "Info and Relationships",
-            "description": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
-            "url": "https://www.w3.org/TR/WCAG22/#info-and-relationships",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.3.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#info-and-relationships"
-              },
-              {
-                "title": "Understanding 1.3.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.3.2",
-            "title": "Meaningful Sequence",
-            "description": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.",
-            "url": "https://www.w3.org/TR/WCAG22/#meaningful-sequence",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.3.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#meaningful-sequence"
-              },
-              {
-                "title": "Understanding 1.3.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/meaningful-sequence.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.3.3",
-            "title": "Sensory Characteristics",
-            "description": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, size, visual location, orientation, or sound.",
-            "url": "https://www.w3.org/TR/WCAG22/#sensory-characteristics",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "For requirements related to color, refer to Guideline 1.4."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.3.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#sensory-characteristics"
-              },
-              {
-                "title": "Understanding 1.3.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.3.4",
-            "title": "Orientation",
-            "description": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
-            "url": "https://www.w3.org/TR/WCAG22/#orientation",
-            "level": "AA",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Examples where a particular display orientation may be essential are a bank check, a piano application, slides for a projector or television, or virtual reality content where binary display orientation is not applicable."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.3.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#orientation"
-              },
-              {
-                "title": "Understanding 1.3.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/orientation.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.3.5",
-            "title": "Identify Input Purpose",
-            "description": "The purpose of each input field collecting information about the user can be programmatically determined when:",
-            "url": "https://www.w3.org/TR/WCAG22/#identify-input-purpose",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "The input field serves a purpose identified in the Input Purposes for User Interface Components section; and"
-              },
-              {
-                "type": "all_true",
-                "title": "The content is implemented using technologies with support for identifying the expected meaning for form input data."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.3.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#identify-input-purpose"
-              },
-              {
-                "title": "Understanding 1.3.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-input-purpose.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.3.6",
-            "title": "Identify Purpose",
-            "description": "In content implemented using markup languages, the purpose of User Interface Components, icons, and regions can be programmatically determined.",
-            "url": "https://www.w3.org/TR/WCAG22/#identify-purpose",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.3.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#identify-purpose"
-              },
-              {
-                "title": "Understanding 1.3.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/identify-purpose.html"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "ref_id": "1.4",
-        "title": "Distinguishable",
-        "description": "Make it easier for users to see and hear content including separating foreground from background.",
-        "url": "https://www.w3.org/TR/WCAG22/#distinguishable",
-        "references": [
-          {
-            "title": "Understanding Guideline 1.4",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/distinguishable.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "1.4.1",
-            "title": "Use of Color",
-            "description": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.",
-            "url": "https://www.w3.org/TR/WCAG22/#use-of-color",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "This success criterion addresses color perception specifically. Other forms of perception are covered in Guideline 1.3 including programmatic access to color and other visual presentation coding."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.4.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#use-of-color"
-              },
-              {
-                "title": "Understanding 1.4.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.2",
-            "title": "Audio Control",
-            "description": "If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.",
-            "url": "https://www.w3.org/TR/WCAG22/#audio-control",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether or not it is used to meet other success criteria) must meet this success criterion. See Conformance Requirement 5: Non-Interference. (https://www.w3.org/TR/WCAG22/#cc5)"
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.4.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#audio-control"
-              },
-              {
-                "title": "Understanding 1.4.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/audio-control.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.3",
-            "title": "Contrast (Minimum)",
-            "description": " The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following:",
-            "url": "https://www.w3.org/TR/WCAG22/#contrast-minimum",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Large Text",
-                "description": "Large-scale text and images of large-scale text have a contrast ratio of at least 3:1;"
-              },
-              {
-                "type": "exception",
-                "title": "Incidental",
-                "description": "Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement."
-              },
-              {
-                "type": "exception",
-                "title": "Logotypes",
-                "description": "Text that is part of a logo or brand name has no minimum contrast requirement."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.4.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#contrast-minimum"
-              },
-              {
-                "title": "Understanding 1.4.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.4",
-            "title": "Resize text",
-            "description": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
-            "url": "https://www.w3.org/TR/WCAG22/#resize-text",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.4.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#resize-text"
-              },
-              {
-                "title": "Understanding 1.4.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/resize-text.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.5",
-            "title": "Images of Text",
-            "description": "If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following:",
-            "url": "https://www.w3.org/TR/WCAG22/#images-of-text",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Customizable",
-                "description": "The image of text can be visually customized to the user's requirements;"
-              },
-              {
-                "type": "exception",
-                "title": "Essential",
-                "description": "A particular presentation of text is essential to the information being conveyed."
-              }
-            ],
-            "notes": [
-              {
-                "content": "Logotypes (text that is part of a logo or brand name) are considered essential."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.4.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#images-of-text"
-              },
-              {
-                "title": "Understanding 1.4.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.6",
-            "title": "Contrast (Enhanced)",
-            "description": "The visual presentation of text and images of text has a contrast ratio of at least 7:1, except for the following: ",
-            "url": "https://www.w3.org/TR/WCAG22/#contrast-enhanced",
-            "level": "AAA",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Large Text",
-                "description": "Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1;"
-              },
-              {
-                "type": "exception",
-                "title": "Incidental",
-                "description": "Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement."
-              },
-              {
-                "type": "exception",
-                "title": "Logotypes",
-                "description": "Text that is part of a logo or brand name has no minimum contrast requirement."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.4.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#contrast-enhanced"
-              },
-              {
-                "title": "Understanding 1.4.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-enhanced.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.7",
-            "title": "Low or No Background Audio",
-            "description": "For prerecorded audio-only content that (1) contains primarily speech in the foreground, (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily musical expression such as singing or rapping, at least one of the following is true:",
-            "url": "https://www.w3.org/TR/WCAG22/#low-or-no-background-audio",
-            "level": "AAA",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "No Background",
-                "description": "The audio does not contain background sounds."
-              },
-              {
-                "type": "at_least_one",
-                "title": "Turn Off",
-                "description": "The background sounds can be turned off."
-              },
-              {
-                "type": "at_least_one",
-                "title": "20 dB",
-                "description": "The background sounds are at least 20 decibels lower than the foreground speech content, with the exception of occasional sounds that last for only one or two seconds."
-              }
-            ],
-            "notes": [
-              {
-                "content": "Per the definition of 'decibel,' background sound that meets this requirement will be approximately four times quieter than the foreground speech content."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.4.7",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#low-or-no-background-audio"
-              },
-              {
-                "title": "Understanding 1.4.7",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/low-or-no-background-audio.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.8",
-            "title": "Visual Presentation",
-            "description": "For the visual presentation of blocks of text, a mechanism is available to achieve the following:",
-            "url": "https://www.w3.org/TR/WCAG22/#visual-presentation",
-            "level": "AAA",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "Foreground and background colors can be selected by the user."
-              },
-              {
-                "type": "all_true",
-                "title": "Width is no more than 80 characters or glyphs (40 if CJK)."
-              },
-              {
-                "type": "all_true",
-                "title": "Text is not justified (aligned to both the left and the right margins)."
-              },
-              {
-                "type": "all_true",
-                "title": "Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing."
-              },
-              {
-                "type": "all_true",
-                "title": "Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.4.8",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#visual-presentation"
-              },
-              {
-                "title": "Understanding 1.4.8",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/visual-presentation.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.9",
-            "title": "Images of Text (No Exception)",
-            "description": "Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.",
-            "url": "https://www.w3.org/TR/WCAG22/#images-of-text-no-exception",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Logotypes (text that is part of a logo or brand name) are considered essential."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.4.9",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#images-of-text-no-exception"
-              },
-              {
-                "title": "Understanding 1.4.9",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text-no-exception.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.10",
-            "title": "Reflow",
-            "description": "Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for:",
-            "url": "https://www.w3.org/TR/WCAG22/#reflow",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "Vertical scrolling content at a width equivalent to 320 CSS pixels;"
-              },
-              {
-                "type": "all_true",
-                "title": "Horizontal scrolling content at a height equivalent to 256 CSS pixels."
-              },
-              {
-                "type": "exception",
-                "title": "Except for parts of the content which require two-dimensional layout for usage or meaning."
-              }
-            ],
-            "notes": [
-              {
-                "content": "Note: 320 CSS pixels is equivalent to a starting viewport width of 1280 CSS pixels wide at 400% zoom. For web content which are designed to scroll horizontally (e.g. with vertical text), the 256 CSS pixels is equivalent to a starting viewport height of 1024px at 400% zoom."
-              },
-              {
-                "content": "Examples of content which require two-dimensional layout are images, maps, diagrams, video, games, presentations, data tables, and interfaces where it is necessary to keep toolbars in view while manipulating content."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.4.10",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#reflow"
-              },
-              {
-                "title": "Understanding 1.4.10",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/reflow.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.11",
-            "title": "Non-text Contrast",
-            "description": "The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):",
-            "url": "https://www.w3.org/TR/WCAG22/#non-text-contrast",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "User Interface Components",
-                "description": "Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;"
-              },
-              {
-                "type": "all_true",
-                "title": "Graphical Objects",
-                "description": "Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.4.11",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#non-text-contrast"
-              },
-              {
-                "title": "Understanding 1.4.11",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.12",
-            "title": "Text Spacing",
-            "description": "In content implemented using markup languages that support the following text style properties, no loss of content or functionality occurs by setting all of the following and by changing no other style property:",
-            "url": "https://www.w3.org/TR/WCAG22/#text-spacing",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "Line height (line spacing) to at least 1.5 times the font size;"
-              },
-              {
-                "type": "all_true",
-                "title": "Spacing following paragraphs to at least 2 times the font size;"
-              },
-              {
-                "type": "all_true",
-                "title": "Letter spacing (tracking) to at least 0.12 times the font size;"
-              },
-              {
-                "type": "all_true",
-                "title": "Word spacing to at least 0.16 times the font size."
-              },
-              {
-                "type": "exception",
-                "title": "Exception: Human languages and scripts that do not make use of one or more of these text style properties in written text can conform using only the properties that exist for that combination of language and script."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 1.4.12",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#text-spacing"
-              },
-              {
-                "title": "Understanding 1.4.12",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "1.4.13",
-            "title": "Content on Hover or Focus",
-            "description": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:",
-            "url": "https://www.w3.org/TR/WCAG22/#content-on-hover-or-focus",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "Dismissable",
-                "description": "A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content;"
-              },
-              {
-                "type": "all_true",
-                "title": "Hoverable",
-                "description": "If pointer hover can trigger the additional content, then the pointer can be moved over the additional content without the additional content disappearing;"
-              },
-              {
-                "type": "all_true",
-                "title": "Persistent",
-                "description": "The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid."
-              },
-              {
-                "type": "exception",
-                "title": "Exception: The visual presentation of the additional content is controlled by the user agent and is not modified by the author."
-              }
-            ],
-            "notes": [
-              {
-                "content": "Examples of additional content controlled by the user agent include browser tooltips created through use of the HTML title attribute."
-              },
-              {
-                "content": "Custom tooltips, sub-menus, and other nonmodal popups that display on hover and focus are examples of additional content covered by this criterion."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 1.4.13",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#content-on-hover-or-focus"
-              },
-              {
-                "title": "Understanding 1.4.13",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html"
-              }
-            ]
+            "handle": "Decoration, Formatting, Invisible",
+            "text": "If non-text content is pure decoration, is used only for visual formatting, or is not presented to users, then it is implemented in a way that it can be ignored by assistive technology."
           }
         ]
       }
     ]
   },
   {
-    "ref_id": "2",
-    "title": "Operable",
-    "description": "User interface components and navigation must be operable.",
-    "url": "https://www.w3.org/TR/WCAG22/#operable",
-    "guidelines": [
+    "num": "1.2.1",
+    "id": "audio-only-and-video-only-prerecorded",
+    "handle": "Audio-only and Video-only (Prerecorded)",
+    "level": "A",
+    "title": "For prerecorded audio-only and prerecorded video-only media, the following are true, except when the audio or video is a media alternative for text and is clearly labeled as such:",
+    "details": [
       {
-        "ref_id": "2.1",
-        "title": "Keyboard Accessible",
-        "description": "Make all functionality available from a keyboard.",
-        "url": "https://www.w3.org/TR/WCAG22/#keyboard-accessible",
-        "references": [
+        "type": "ulist",
+        "items": [
           {
-            "title": "Understanding Guideline 2.1",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard-accessible.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "2.1.1",
-            "title": "Keyboard",
-            "description": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.",
-            "url": "https://www.w3.org/TR/WCAG22/#keyboard",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "This exception relates to the underlying function, not the input technique. For example, if using handwriting to enter text, the input technique (handwriting) requires path-dependent input but the underlying function (text input) does not."
-              },
-              {
-                "content": "This does not forbid and should not discourage providing mouse input or other input methods in addition to keyboard operation."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#keyboard"
-              },
-              {
-                "title": "Understanding 2.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html"
-              }
-            ]
+            "handle": "Prerecorded Audio-only",
+            "text": "An alternative for time-based media is provided that presents equivalent information for prerecorded audio-only content."
           },
           {
-            "ref_id": "2.1.2",
-            "title": "No Keyboard Trap",
-            "description": "If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.",
-            "url": "https://www.w3.org/TR/WCAG22/#no-keyboard-trap",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference. (https://www.w3.org/TR/WCAG22/#cc5)"
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.1.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#no-keyboard-trap"
-              },
-              {
-                "title": "Understanding 2.1.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-keyboard-trap.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.1.3",
-            "title": "Keyboard (No Exception)",
-            "description": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.",
-            "url": "https://www.w3.org/TR/WCAG22/#keyboard-no-exception",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.1.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#keyboard-no-exception"
-              },
-              {
-                "title": "Understanding 2.1.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/keyboard-no-exception.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.1.4",
-            "title": "Character Key Shortcuts",
-            "description": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:",
-            "url": "https://www.w3.org/TR/WCAG22/#character-key-shortcuts",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "Turn off",
-                "description": "A mechanism is available to turn the shortcut off;"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Remap",
-                "description": "A mechanism is available to remap the shortcut to use one or more non-printable keyboard characters (e.g. Ctrl, Alt, etc);"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Active only on focus",
-                "description": "The keyboard shortcut for a user interface component is only active when that component has focus."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.1.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#character-key-shortcuts"
-              },
-              {
-                "title": "Understanding 2.1.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/character-key-shortcuts.html"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "ref_id": "2.2",
-        "title": "Enough Time",
-        "description": "Provide users enough time to read and use content.",
-        "url": "https://www.w3.org/TR/WCAG22/#enough-time",
-        "references": [
-          {
-            "title": "Understanding Guideline 2.2",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/enough-time.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "2.2.1",
-            "title": "Timing Adjustable",
-            "description": "For each time limit that is set by the content, at least one of the following is true:",
-            "url": "https://www.w3.org/TR/WCAG22/#timing-adjustable",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "Turn off",
-                "description": "The user is allowed to turn off the time limit before encountering it; or"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Adjust",
-                "description": "The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Extend",
-                "description": "The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, 'press the space bar'), and the user is allowed to extend the time limit at least ten times; or"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Real-time Exception",
-                "description": "The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Essential Exception",
-                "description": "The time limit is essential and extending it would invalidate the activity; or"
-              },
-              {
-                "type": "at_least_one",
-                "title": "20 Hour Exception",
-                "description": "The time limit is longer than 20 hours."
-              }
-            ],
-            "notes": [
-              {
-                "content": "This success criterion helps ensure that users can complete tasks without unexpected changes in content or context that are a result of a time limit. This success criterion should be considered in conjunction with Success Criterion 3.2.1 (https://www.w3.org/TR/WCAG22/#on-focus), which puts limits on changes of content or context as a result of user action."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.2.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#timing-adjustable"
-              },
-              {
-                "title": "Understanding 2.2.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/timing-adjustable.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.2.2",
-            "title": "Pause, Stop, Hide",
-            "description": "For moving, blinking, scrolling, or auto-updating information, all of the following are true:",
-            "url": "https://www.w3.org/TR/WCAG22/#pause-stop-hide",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "Moving, blinking, scrolling",
-                "description": "For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and"
-              },
-              {
-                "type": "all_true",
-                "title": "Auto-updating",
-                "description": "For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential."
-              }
-            ],
-            "notes": [
-              {
-                "content": "For requirements related to flickering or flashing content, refer to Guideline 2.3. (https://www.w3.org/TR/WCAG22/#seizures-and-physical-reactions)"
-              },
-              {
-                "content": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference (https://www.w3.org/TR/WCAG22/#cc5)"
-              },
-              {
-                "content": "Content that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so."
-              },
-              {
-                "content": "An animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.2.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#pause-stop-hide"
-              },
-              {
-                "title": "Understanding 2.2.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.2.3",
-            "title": "No Timing",
-            "description": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.",
-            "url": "https://www.w3.org/TR/WCAG22/#no-timing",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.2.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#no-timing"
-              },
-              {
-                "title": "Understanding 2.2.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/no-timing.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.2.4",
-            "title": "Interruptions",
-            "description": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency.",
-            "url": "https://www.w3.org/TR/WCAG22/#interruptions",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.2.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#interruptions"
-              },
-              {
-                "title": "Understanding 2.2.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/interruptions.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.2.5",
-            "title": "Re-authenticating",
-            "description": "When an authenticated session expires, the user can continue the activity without loss of data after re-authenticating.",
-            "url": "https://www.w3.org/TR/WCAG22/#re-authenticating",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.2.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#re-authenticating"
-              },
-              {
-                "title": "Understanding 2.2.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/re-authenticating.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.2.6",
-            "title": "Timeouts",
-            "description": "Users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.",
-            "url": "https://www.w3.org/TR/WCAG22/#timeouts",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Privacy regulations may require explicit user consent before user identification has been authenticated and before user data is preserved. In cases where the user is a minor, explicit consent may not be solicited in most jurisdictions, countries or regions. Consultation with privacy professionals and legal counsel is advised when considering data preservation as an approach to satisfy this success criterion."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.2.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#timeouts"
-              },
-              {
-                "title": "Understanding 2.2.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/timeouts.html"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "ref_id": "2.3",
-        "title": "Seizures",
-        "description": "Do not design content in a way that is known to cause seizures.",
-        "url": "https://www.w3.org/TR/WCAG22/#seizures-and-physical-reactions",
-        "references": [
-          {
-            "title": "Understanding Guideline 2.3",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/seizures-and-physical-reactions.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "2.3.1",
-            "title": "Three Flashes or Below Threshold",
-            "description": "Web pages do not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.",
-            "url": "https://www.w3.org/TR/WCAG22/#three-flashes-or-below-threshold",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the Web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference. (https://www.w3.org/TR/WCAG22/#cc5)"
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.3.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#three-flashes-or-below-threshold"
-              },
-              {
-                "title": "Understanding 2.3.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.3.2",
-            "title": "Three Flashes",
-            "description": "Web pages do not contain anything that flashes more than three times in any one second period.",
-            "url": "https://www.w3.org/TR/WCAG22/#three-flashes",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.3.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#three-flashes"
-              },
-              {
-                "title": "Understanding 2.3.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/three-flashes.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.3.3",
-            "title": "Animation from Interactions",
-            "description": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.",
-            "url": "https://www.w3.org/TR/WCAG22/#animation-from-interactions",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.3.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#animation-from-interactions"
-              },
-              {
-                "title": "Understanding 2.3.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "ref_id": "2.4",
-        "title": "Navigable",
-        "description": "Provide ways to help users navigate, find content, and determine where they are.",
-        "url": "https://www.w3.org/TR/WCAG22/#navigable",
-        "references": [
-          {
-            "title": "Understanding Guideline 2.4",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/navigable.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "2.4.1",
-            "title": "Bypass Blocks",
-            "description": "A mechanism is available to bypass blocks of content that are repeated on multiple Web pages.",
-            "url": "https://www.w3.org/TR/WCAG22/#bypass-blocks",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#bypass-blocks"
-              },
-              {
-                "title": "Understanding 2.4.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.2",
-            "title": "Page Titled",
-            "description": "Web pages have titles that describe topic or purpose.",
-            "url": "https://www.w3.org/TR/WCAG22/#page-titled",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#page-titled"
-              },
-              {
-                "title": "Understanding 2.4.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.3",
-            "title": "Focus Order",
-            "description": "If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
-            "url": "https://www.w3.org/TR/WCAG22/#focus-order",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#focus-order"
-              },
-              {
-                "title": "Understanding 2.4.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-order.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.4",
-            "title": "Link Purpose (In Context)",
-            "description": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.",
-            "url": "https://www.w3.org/TR/WCAG22/#link-purpose-in-context",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-in-context"
-              },
-              {
-                "title": "Understanding 2.4.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.5",
-            "title": "Multiple Ways",
-            "description": "More than one way is available to locate a Web page within a set of Web pages except where the Web Page is the result of, or a step in, a process.",
-            "url": "https://www.w3.org/TR/WCAG22/#link-purpose-in-context",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#multiple-ways"
-              },
-              {
-                "title": "Understanding 2.4.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/multiple-ways.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.6",
-            "title": "Headings and Labels",
-            "description": "Headings and labels describe topic or purpose.",
-            "url": "https://www.w3.org/TR/WCAG22/#headings-and-labels",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#headings-and-labels"
-              },
-              {
-                "title": "Understanding 2.4.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/headings-and-labels.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.7",
-            "title": "Focus Visible",
-            "description": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
-            "url": "https://www.w3.org/TR/WCAG22/#focus-visible",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.7",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#focus-visible"
-              },
-              {
-                "title": "Understanding 2.4.7",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.8",
-            "title": "Location",
-            "description": "Information about the user's location within a set of Web pages is available.",
-            "url": "https://www.w3.org/TR/WCAG22/#location",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.8",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#location"
-              },
-              {
-                "title": "Understanding 2.4.8",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/location.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.9",
-            "title": "Link Purpose (Link Only)",
-            "description": "A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general.",
-            "url": "https://www.w3.org/TR/WCAG22/#link-purpose-link-only",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.9",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#link-purpose-link-only"
-              },
-              {
-                "title": "Understanding 2.4.9",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-link-only.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.10",
-            "title": "Section Headings",
-            "description": "Section headings are used to organize the content.",
-            "url": "https://www.w3.org/TR/WCAG22/#section-headings",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "'Heading' is used in its general sense and includes titles and other ways to add a heading to different types of content."
-              },
-              {
-                "content": "This success criterion covers sections within writing, not user interface components. User Interface components are covered under Success Criterion 4.1.2. (https://www.w3.org/TR/WCAG22/#name-role-value)"
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.4.10",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#section-headings"
-              },
-              {
-                "title": "Understanding 2.4.10",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/section-headings.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.11",
-            "title": "Focus Not Obscured (Minimum)",
-            "description": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.",
-            "url": "https://www.w3.org/TR/WCAG22/#focus-not-obscured-minimum",
-            "level": "AA",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Where content in a configurable interface can be repositioned by the user, then only the initial positions of user-movable content are considered for testing and conformance of this Success Criterion."
-              },
-              {
-                "content": "Content opened by the user may obscure the component receiving focus. If the user can reveal the focused component without advancing the keyboard focus, the component with focus is not considered hidden due to author-created content."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.4.11",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-minimum"
-              },
-              {
-                "title": "Understanding 2.4.11",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.12",
-            "title": "Focus Not Obscured (Enhanced)",
-            "description": "When a user interface component receives keyboard focus, no part of the component is hidden by author-created content.",
-            "url": "https://www.w3.org/TR/WCAG22/#focus-not-obscured-enhanced",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.4.12",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#focus-not-obscured-enhanced"
-              },
-              {
-                "title": "Understanding 2.4.12",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-enhanced.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.4.13",
-            "title": "Focus Appearance",
-            "description": "When the keyboard focus indicator is visible, an area of the focus indicator meets all the following:",
-            "url": "https://www.w3.org/TR/WCAG22/#focus-appearance",
-            "level": "AAA",
-            "special_cases": [
-              {
-                "type": "all_true",
-                "title": "is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused component or sub-component, and"
-              },
-              {
-                "type": "all_true",
-                "title": "has a contrast ratio of at least 3:1 between the same pixels in the focused and unfocused states."
-              },
-              {
-                "type": "exception",
-                "title": "The focus indicator is determined by the user agent and cannot be adjusted by the author, or"
-              },
-              {
-                "type": "exception",
-                "title": "The focus indicator and the indicator’s background color are not modified by the author."
-              }
-            ],
-            "notes": [
-              {
-                "content": "What is perceived as the user interface component or sub-component (to determine enclosure or size) depends on its visual presentation. The visual presentation includes the component's visible content, border, and component-specific background. It does not include shadow and glow effects outside the component's content, background, or border."
-              },
-              {
-                "content": "Examples of sub-components that may receive a focus indicator are menu items in an opened drop-down menu, or focusable cells in a grid."
-              },
-              {
-                "content": "Contrast calculations can be based on colors defined within the technology (such as HTML, CSS and SVG). Pixels modified by user agent resolution enhancements and anti-aliasing can be ignored."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.4.13",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#focus-appearance"
-              },
-              {
-                "title": "Understanding 2.4.13",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "ref_id": "2.5",
-        "title": "Input Modalities",
-        "description": "Make it easier for users to operate functionality through various inputs beyond keyboard.",
-        "url": "https://www.w3.org/TR/WCAG22/#input-modalities",
-        "references": [
-          {
-            "title": "Understanding Guideline 2.5",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/input-modalities.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "2.5.1",
-            "title": "Pointer Gestures",
-            "description": "All functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.",
-            "url": "https://www.w3.org/TR/WCAG22/#pointer-gestures",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "This requirement applies to web content that interprets pointer actions (i.e. this does not apply to actions that are required to operate the user agent or assistive technology)."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.5.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#pointer-gestures"
-              },
-              {
-                "title": "Understanding 2.5.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.5.2",
-            "title": "Pointer Cancellation",
-            "description": "For functionality that can be operated using a single pointer, at least one of the following is true:",
-            "url": "https://www.w3.org/TR/WCAG22/#pointer-cancellation",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "No Down-Event",
-                "description": "The down-event of the pointer is not used to execute any part of the function;"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Abort or Undo",
-                "description": "Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion;"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Up Reversal",
-                "description": "The up-event reverses any outcome of the preceding down-event;"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Essential",
-                "description": "Completing the function on the down-event is essential."
-              }
-            ],
-            "notes": [
-              {
-                "content": "Functions that emulate a keyboard or numeric keypad key press are considered essential."
-              },
-              {
-                "content": "This requirement applies to web content that interprets pointer actions (i.e. this does not apply to actions that are required to operate the user agent or assistive technology)."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.5.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#pointer-cancellation"
-              },
-              {
-                "title": "Understanding 2.5.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.5.3",
-            "title": "Label in Name",
-            "description": "For user interface components with labels that include text or images of text, the name contains the text that is presented visually.",
-            "url": "https://www.w3.org/TR/WCAG22/#label-in-name",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "A best practice is to have the text of the label at the start of the name."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.5.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#label-in-name"
-              },
-              {
-                "title": "Understanding 2.5.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.5.4",
-            "title": "Motion Actuation",
-            "description": "Functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when:",
-            "url": "https://www.w3.org/TR/WCAG22/#motion-actuation",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Supported Interface",
-                "description": "The motion is used to operate functionality through an accessibility supported interface;"
-              },
-              {
-                "type": "exception",
-                "title": "Essential",
-                "description": "The motion is essential for the function and doing so would invalidate the activity."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.5.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#motion-actuation"
-              },
-              {
-                "title": "Understanding 2.5.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.5.5",
-            "title": "Target Size",
-            "description": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:",
-            "url": "https://www.w3.org/TR/WCAG22/#target-size",
-            "level": "AAA",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Equivalent",
-                "description": "The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels;"
-              },
-              {
-                "type": "exception",
-                "title": "Inline",
-                "description": "The target is in a sentence or block of text;"
-              },
-              {
-                "type": "exception",
-                "title": "User Agent Control",
-                "description": "The size of the target is determined by the user agent and is not modified by the author;"
-              },
-              {
-                "type": "exception",
-                "title": "Essential",
-                "description": "A particular presentation of the target is essential to the information being conveyed."
-              }
-            ],
-            "notes": [
-              {
-                "content": "Targets that allow for values to be selected spatially based on position within the target are considered one target for the purpose of the success criterion. Examples include sliders, color pickers displaying a gradient of colors, or editable areas where you position the cursor."
-              },
-              {
-                "content": "For inline targets the line-height should be interpreted as perpendicular to the flow of text. For example, in a language displayed vertically, the line-height would be horizontal."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.5.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#target-size"
-              },
-              {
-                "title": "Understanding 2.5.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.5.6",
-            "title": "Concurrent Input Mechanisms",
-            "description": "Web content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.",
-            "url": "https://www.w3.org/TR/WCAG22/#concurrent-input-mechanisms",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 2.5.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#concurrent-input-mechanisms"
-              },
-              {
-                "title": "Understanding 2.5.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/concurrent-input-mechanisms.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.5.7",
-            "title": "Dragging Movements",
-            "description": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging, unless dragging is essential or the functionality is determined by the user agent and not modified by the author.",
-            "url": "https://www.w3.org/TR/WCAG22/#dragging-movements",
-            "level": "AA",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "This requirement applies to web content that interprets pointer actions (i.e. this does not apply to actions that are required to operate the user agent or assistive technology)."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.5.7",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#dragging-movements"
-              },
-              {
-                "title": "Understanding 2.5.7",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/dragging-movements.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "2.5.8",
-            "title": "Target Size (Minimum)",
-            "description": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:",
-            "url": "https://www.w3.org/TR/WCAG22/#target-size-minimum",
-            "level": "AA",
-            "notes": null,
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Spacing",
-                "description": "Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;"
-              },
-              {
-                "type": "exception",
-                "title": "Equivalent",
-                "description": "The function can be achieved through a different control on the same page that meets this criterion;"
-              },
-              {
-                "type": "exception",
-                "title": "Inline",
-                "description": "The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;"
-              },
-              {
-                "type": "exception",
-                "title": "User agent control",
-                "description": "The size of the target is determined by the user agent and is not modified by the author;"
-              },
-              {
-                "type": "exception",
-                "title": "Essential",
-                "description": "A particular presentation of the target is essential or is legally required for the information being conveyed."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 2.5.8",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#target-size-minimum"
-              },
-              {
-                "title": "Understanding 2.5.8",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html"
-              }
-            ]
+            "handle": "Prerecorded Video-only",
+            "text": "Either an alternative for time-based media or an audio track is provided that presents equivalent information for prerecorded video-only content."
           }
         ]
       }
     ]
   },
   {
-    "ref_id": "3",
-    "title": "Understandable",
-    "description": "Information and the operation of user interface must be understandable.",
-    "url": "https://www.w3.org/TR/WCAG22/#understandable",
-    "guidelines": [
+    "num": "1.2.2",
+    "id": "captions-prerecorded",
+    "handle": "Captions (Prerecorded)",
+    "level": "A",
+    "title": "Captions are provided for all prerecorded audio content in synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
+    "details": []
+  },
+  {
+    "num": "1.2.3",
+    "id": "audio-description-or-media-alternative-prerecorded",
+    "handle": "Audio Description or Media Alternative (Prerecorded)",
+    "level": "A",
+    "title": "An alternative for time-based media or audio description of the prerecorded video content is provided for synchronized media, except when the media is a media alternative for text and is clearly labeled as such.",
+    "details": []
+  },
+  {
+    "num": "1.2.4",
+    "id": "captions-live",
+    "handle": "Captions (Live)",
+    "level": "AA",
+    "title": "Captions are provided for all live audio content in synchronized media.",
+    "details": []
+  },
+  {
+    "num": "1.2.5",
+    "id": "audio-description-prerecorded",
+    "handle": "Audio Description (Prerecorded)",
+    "level": "AA",
+    "title": "Audio description is provided for all prerecorded video content in synchronized media.",
+    "details": []
+  },
+  {
+    "num": "1.2.6",
+    "id": "sign-language-prerecorded",
+    "handle": "Sign Language (Prerecorded)",
+    "level": "AAA",
+    "title": "Sign language interpretation is provided for all prerecorded audio content in synchronized media.",
+    "details": []
+  },
+  {
+    "num": "1.2.7",
+    "id": "extended-audio-description-prerecorded",
+    "handle": "Extended Audio Description (Prerecorded)",
+    "level": "AAA",
+    "title": "Where pauses in foreground audio are insufficient to allow audio descriptions to convey the sense of the video, extended audio description is provided for all prerecorded video content in synchronized media.",
+    "details": []
+  },
+  {
+    "num": "1.2.8",
+    "id": "media-alternative-prerecorded",
+    "handle": "Media Alternative (Prerecorded)",
+    "level": "AAA",
+    "title": "An alternative for time-based media is provided for all prerecorded synchronized media and for all prerecorded video-only media.",
+    "details": []
+  },
+  {
+    "num": "1.2.9",
+    "id": "audio-only-live",
+    "handle": "Audio-only (Live)",
+    "level": "AAA",
+    "title": "An alternative for time-based media that presents equivalent information for live audio-only content is provided.",
+    "details": []
+  },
+  {
+    "num": "1.3.1",
+    "id": "info-and-relationships",
+    "handle": "Info and Relationships",
+    "level": "A",
+    "title": "Information, structure, and relationships conveyed through presentation can be programmatically determined or are available in text.",
+    "details": []
+  },
+  {
+    "num": "1.3.2",
+    "id": "meaningful-sequence",
+    "handle": "Meaningful Sequence",
+    "level": "A",
+    "title": "When the sequence in which content is presented affects its meaning, a correct reading sequence can be programmatically determined.",
+    "details": []
+  },
+  {
+    "num": "1.3.3",
+    "id": "sensory-characteristics",
+    "handle": "Sensory Characteristics",
+    "level": "A",
+    "title": "Instructions provided for understanding and operating content do not rely solely on sensory characteristics of components such as shape, color, size, visual location, orientation, or sound.",
+    "details": [
       {
-        "ref_id": "3.1",
-        "title": "Readable",
-        "description": "Make text content readable and understandable.",
-        "url": "https://www.w3.org/TR/WCAG22/#readable",
-        "references": [
-          {
-            "title": "Understanding Guideline 3.1",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/readable.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "3.1.1",
-            "title": "Language of Page",
-            "description": "The default human language of each Web page can be programmatically determined.",
-            "url": "https://www.w3.org/TR/WCAG22/#language-of-page",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#language-of-page"
-              },
-              {
-                "title": "Understanding 3.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.1.2",
-            "title": "Language of Parts",
-            "description": "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
-            "url": "https://www.w3.org/TR/WCAG22/#language-of-parts",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.1.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#language-of-parts"
-              },
-              {
-                "title": "Understanding 3.1.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-parts.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.1.3",
-            "title": "Unusual Words",
-            "description": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
-            "url": "https://www.w3.org/TR/WCAG22/#unusual-words",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.1.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#unusual-words"
-              },
-              {
-                "title": "Understanding 3.1.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/unusual-words.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.1.4",
-            "title": "Abbreviations",
-            "description": "A mechanism for identifying the expanded form or meaning of abbreviations is available.",
-            "url": "https://www.w3.org/TR/WCAG22/#abbreviations",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.1.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#abbreviations"
-              },
-              {
-                "title": "Understanding 3.1.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/abbreviations.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.1.5",
-            "title": "Reading Level",
-            "description": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles, supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available.",
-            "url": "https://www.w3.org/TR/WCAG22/#reading-level",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.1.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#reading-level"
-              },
-              {
-                "title": "Understanding 3.1.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/reading-level.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.1.6",
-            "title": "Pronunciation",
-            "description": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation.",
-            "url": "https://www.w3.org/TR/WCAG22/#pronunciation",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.1.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#pronunciation"
-              },
-              {
-                "title": "Understanding 3.1.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/pronunciation.html"
-              }
-            ]
-          }
-        ]
-      },
+        "type": "note",
+        "handle": "Note",
+        "text": "For requirements related to color, refer to Guideline 1.4."
+      }
+    ]
+  },
+  {
+    "num": "1.3.4",
+    "id": "orientation",
+    "handle": "Orientation",
+    "level": "AA",
+    "title": "Content does not restrict its view and operation to a single display orientation, such as portrait or landscape, unless a specific display orientation is essential.",
+    "details": [
       {
-        "ref_id": "3.2",
-        "title": "Predictable",
-        "description": "Make Web pages appear and operate in predictable ways.",
-        "url": "https://www.w3.org/TR/WCAG22/#predictable",
-        "references": [
-          {
-            "title": "Understanding Guideline 3.2",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/predictable.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "3.2.1",
-            "title": "On Focus",
-            "description": "When any component receives focus, it does not initiate a change of context.",
-            "url": "https://www.w3.org/TR/WCAG22/#on-focus",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.2.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#on-focus"
-              },
-              {
-                "title": "Understanding 3.2.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-focus.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.2.2",
-            "title": "On Input",
-            "description": "Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component.",
-            "url": "https://www.w3.org/TR/WCAG22/#on-input",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.2.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#on-input"
-              },
-              {
-                "title": "Understanding 3.2.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/on-input.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.2.3",
-            "title": "Consistent Navigation",
-            "description": "Navigational mechanisms that are repeated on multiple Web pages within a set of Web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
-            "url": "https://www.w3.org/TR/WCAG22/#consistent-navigation",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.2.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#consistent-navigation"
-              },
-              {
-                "title": "Understanding 3.2.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.2.4",
-            "title": "Consistent Identification",
-            "description": "Components that have the same functionality within a set of Web pages are identified consistently.",
-            "url": "https://www.w3.org/TR/WCAG22/#consistent-identification",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.2.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#consistent-identification"
-              },
-              {
-                "title": "Understanding 3.2.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-identification.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.2.5",
-            "title": "Change on Request",
-            "description": "Changes of context are initiated only by user request or a mechanism is available to turn off such changes.",
-            "url": "https://www.w3.org/TR/WCAG22/#change-on-request",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.2.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#change-on-request"
-              },
-              {
-                "title": "Understanding 3.2.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/change-on-request.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.2.6",
-            "title": "Consistent Help",
-            "description": "If a Web page contains any of the following help mechanisms, and those mechanisms are repeated on multiple Web pages within a set of Web pages, they occur in the same order relative to other page content, unless a change is initiated by the user:",
-            "url": "https://www.w3.org/TR/WCAG22/#consistent-help",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "Human contact details;"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Human contact mechanism;"
-              },
-              {
-                "type": "at_least_one",
-                "title": "Self-help option;"
-              },
-              {
-                "type": "at_least_one",
-                "title": "A fully automated contact mechanism."
-              }
-            ],
-            "notes": [
-              {
-                "content": "A fully automated contact mechanism."
-              },
-              {
-                "content": "For this Success Criterion, “the same order relative to other page content” can be thought of as how the content is ordered when the page is serialized. The visual position of a help mechanism is likely to be consistent across pages for the same page variation (e.g., CSS break-point). The user can initiate a change, such as changing the page’s zoom or orientation, which may trigger a different page variation. This criterion is concerned with relative order across pages displayed in the same page variation (e.g., same zoom level and orientation)."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 3.2.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#consistent-help"
-              },
-              {
-                "title": "Understanding 3.2.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html"
-              }
-            ]
-          }
-        ]
-      },
+        "type": "note",
+        "handle": "Note",
+        "text": "Examples where a particular display orientation may be essential are a bank check, a piano application, slides for a projector or television, or virtual reality content where content is not necessarily restricted to landscape or portrait display orientation."
+      }
+    ]
+  },
+  {
+    "num": "1.3.5",
+    "id": "identify-input-purpose",
+    "handle": "Identify Input Purpose",
+    "level": "AA",
+    "title": "The purpose of each input field collecting information about the user can be programmatically determined when:",
+    "details": [
       {
-        "ref_id": "3.3",
-        "title": "Input Assistance",
-        "description": "Help users avoid and correct mistakes.",
-        "url": "https://www.w3.org/TR/WCAG22/#input-assistance",
-        "references": [
+        "type": "ulist",
+        "items": [
           {
-            "title": "Understanding Guideline 3.3",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/input-assistance.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "3.3.1",
-            "title": "Error Identification",
-            "description": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
-            "url": "https://www.w3.org/TR/WCAG22/#error-identification",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#error-identification"
-              },
-              {
-                "title": "Understanding 3.3.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html"
-              }
-            ]
+            "text": "The input field serves a purpose identified in the Input Purposes for user interface components section; and"
           },
           {
-            "ref_id": "3.3.2",
-            "title": "Labels or Instructions",
-            "description": "Labels or instructions are provided when content requires user input.",
-            "url": "https://www.w3.org/TR/WCAG22/#labels-or-instructions",
-            "level": "A",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#labels-or-instructions"
-              },
-              {
-                "title": "Understanding 3.3.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/labels-or-instructions.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.3.3",
-            "title": "Error Suggestion",
-            "description": "If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.",
-            "url": "https://www.w3.org/TR/WCAG22/#error-suggestion",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#error-suggestion"
-              },
-              {
-                "title": "Understanding 3.3.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-suggestion.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.3.4",
-            "title": "Error Prevention (Legal, Financial, Data)",
-            "description": " For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true:",
-            "url": "https://www.w3.org/TR/WCAG22/#error-prevention-legal-financial-data",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "Reversible",
-                "description": "Submissions are reversible."
-              },
-              {
-                "type": "at_least_one",
-                "title": "Checked",
-                "description": "Data entered by the user is checked for input errors and the user is provided an opportunity to correct them."
-              },
-              {
-                "type": "at_least_one",
-                "title": "Confirmed",
-                "description": "A mechanism is available for reviewing, confirming, and correcting information before finalizing the submission."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.4",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-legal-financial-data"
-              },
-              {
-                "title": "Understanding 3.3.4",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-legal-financial-data.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.3.5",
-            "title": "Help",
-            "description": "Context-sensitive help is available.",
-            "url": "https://www.w3.org/TR/WCAG22/#help",
-            "level": "AAA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.5",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#help"
-              },
-              {
-                "title": "Understanding 3.3.5",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/help.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.3.6",
-            "title": "Error Prevention (All)",
-            "description": "For Web pages that require the user to submit information, at least one of the following is true:",
-            "url": "https://www.w3.org/TR/WCAG22/#error-prevention-all",
-            "level": "AAA",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "Reversible",
-                "description": "Submissions are reversible."
-              },
-              {
-                "type": "at_least_one",
-                "title": "Checked",
-                "description": "Data entered by the user is checked for input errors and the user is provided an opportunity to correct them."
-              },
-              {
-                "type": "at_least_one",
-                "title": "Confirmed",
-                "description": "A mechanism is available for reviewing, confirming, and correcting information before finalizing the submission."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.6",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#error-prevention-all"
-              },
-              {
-                "title": "Understanding 3.3.6",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-prevention-all.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.3.7",
-            "title": "Redundant Entry",
-            "description": "Information previously entered by or provided to the user that is required to be entered again in the same process is either:",
-            "url": "https://www.w3.org/TR/WCAG22/#redundant-entry",
-            "level": "A",
-            "special_cases": [
-              {
-                "type": "at_least_one",
-                "title": "auto-populated, or"
-              },
-              {
-                "type": "at_least_one",
-                "title": "available for the user to select."
-              },
-              {
-                "type": "exception",
-                "title": "re-entering the information is essential,"
-              },
-              {
-                "type": "exception",
-                "title": "the information is required to ensure the security of the content, or"
-              },
-              {
-                "type": "exception",
-                "title": "previously entered information is no longer valid."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.7",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#redundant-entry"
-              },
-              {
-                "title": "Understanding 3.3.7",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.3.8",
-            "title": "Accessible Authentication (Minimum)",
-            "description": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following:",
-            "url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum",
-            "level": "AA",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Alternative",
-                "description": "Another authentication method that does not rely on a cognitive function test."
-              },
-              {
-                "type": "exception",
-                "title": "Mechanism",
-                "description": "A mechanism is available to assist the user in completing the cognitive function test."
-              },
-              {
-                "type": "exception",
-                "title": "Object Recognition",
-                "description": "The cognitive function test is to recognize objects."
-              },
-              {
-                "type": "exception",
-                "title": "Personal Content",
-                "description": "The cognitive function test is to identify non-text content the user provided to the Web site."
-              }
-            ],
-            "notes": [
-              {
-                "content": "”Object recognition” and ”Personal content” may be represented by images, video, or audio."
-              },
-              {
-                "content": "Examples of mechanisms that satisfy this criterion include: <ol><li>support for password entry by password managers to reduce memory need, and</li><li>copy and paste to reduce the cognitive burden of re-typing.</li></ol>"
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 3.3.8",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#accessible-authentication-minimum"
-              },
-              {
-                "title": "Understanding 3.3.8",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html"
-              }
-            ]
-          },
-          {
-            "ref_id": "3.3.9",
-            "title": "Accessible Authentication (Enhanced)",
-            "description": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following:",
-            "url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-enhanced",
-            "level": "AAA",
-            "special_cases": [
-              {
-                "type": "exception",
-                "title": "Alternative",
-                "description": "Another authentication method that does not rely on a cognitive function test."
-              },
-              {
-                "type": "exception",
-                "title": "Mechanism",
-                "description": "A mechanism is available to assist the user in completing the cognitive function test."
-              }
-            ],
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 3.3.9",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#accessible-authentication-enhanced"
-              },
-              {
-                "title": "Understanding 3.3.9",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-enhanced.html"
-              }
-            ]
+            "text": "The content is implemented using technologies with support for identifying the expected meaning for form input data."
           }
         ]
       }
     ]
   },
   {
-    "ref_id": "4",
-    "title": "Robust",
-    "description": "Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.",
-    "url": "https://www.w3.org/TR/WCAG22/#robust",
-    "guidelines": [
+    "num": "1.3.6",
+    "id": "identify-purpose",
+    "handle": "Identify Purpose",
+    "level": "AAA",
+    "title": "In content implemented using markup languages, the purpose of user interface components, icons, and regions can be programmatically determined.",
+    "details": []
+  },
+  {
+    "num": "1.4.1",
+    "id": "use-of-color",
+    "handle": "Use of Color",
+    "level": "A",
+    "title": "Color is not used as the only visual means of conveying information, indicating an action, prompting a response, or distinguishing a visual element.",
+    "details": [
       {
-        "ref_id": "4.1",
-        "title": "Compatible",
-        "description": "Maximize compatibility with current and future user agents, including assistive technologies.",
-        "url": "https://www.w3.org/TR/WCAG22/#compatible",
-        "references": [
+        "type": "note",
+        "handle": "Note",
+        "text": "This success criterion addresses color perception specifically. Other forms of perception are covered in Guideline 1.3 including programmatic access to color and other visual presentation coding."
+      }
+    ]
+  },
+  {
+    "num": "1.4.2",
+    "id": "audio-control",
+    "handle": "Audio Control",
+    "level": "A",
+    "title": "If any audio on a web page plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether or not it is used to meet other success criteria) must meet this success criterion. See Conformance Requirement 5: Non-Interference."
+      }
+    ]
+  },
+  {
+    "num": "1.4.3",
+    "id": "contrast-minimum",
+    "handle": "Contrast (Minimum)",
+    "level": "AA",
+    "title": "The visual presentation of text and images of text has a contrast ratio of at least 4.5:1, except for the following:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
           {
-            "title": "Understanding Guideline 4.1",
-            "url": "https://www.w3.org/WAI/WCAG22/Understanding/compatible.html"
-          }
-        ],
-        "success_criteria": [
-          {
-            "ref_id": "4.1.1",
-            "title": "Parsing",
-            "description": "In content implemented using markup languages, elements have complete start and end tags, elements are nested according to their specifications, elements do not contain duplicate attributes, and any IDs are unique, except where the specifications allow these features.",
-            "url": "https://www.w3.org/TR/WCAG22/#parsing",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "Start and end tags that are missing a critical character in their formation, such as a closing angle bracket or a mismatched attribute value quotation mark are not complete."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 4.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#parsing"
-              },
-              {
-                "title": "Understanding 4.1.1",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/parsing.html"
-              }
-            ]
+            "handle": "Large Text",
+            "text": "Large-scale text and images of large-scale text have a contrast ratio of at least 3:1;"
           },
           {
-            "ref_id": "4.1.2",
-            "title": "Name, Role, Value",
-            "description": "For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.",
-            "url": "https://www.w3.org/TR/WCAG22/#name-role-value",
-            "level": "A",
-            "special_cases": null,
-            "notes": [
-              {
-                "content": "This success criterion is primarily for Web authors who develop or script their own user interface components. For example, standard HTML controls already meet this success criterion when used according to specification."
-              }
-            ],
-            "references": [
-              {
-                "title": "How to Meet 4.1.2",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#name-role-value"
-              },
-              {
-                "title": "Understanding 4.1.2",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/name-role-value.html"
-              }
-            ]
+            "handle": "Incidental",
+            "text": "Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement."
           },
           {
-            "ref_id": "4.1.3",
-            "title": "Status Messages",
-            "description": "In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.",
-            "url": "https://www.w3.org/TR/WCAG22/#status-messages",
-            "level": "AA",
-            "special_cases": null,
-            "notes": null,
-            "references": [
-              {
-                "title": "How to Meet 4.1.3",
-                "url": "https://www.w3.org/WAI/WCAG22/quickref/#status-messages"
-              },
-              {
-                "title": "Understanding 4.1.3",
-                "url": "https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html"
-              }
-            ]
+            "handle": "Logotypes",
+            "text": "Text that is part of a logo or brand name has no contrast requirement."
           }
         ]
       }
     ]
+  },
+  {
+    "num": "1.4.4",
+    "id": "resize-text",
+    "handle": "Resize Text",
+    "level": "AA",
+    "title": "Except for captions and images of text, text can be resized without assistive technology up to 200 percent without loss of content or functionality.",
+    "details": []
+  },
+  {
+    "num": "1.4.5",
+    "id": "images-of-text",
+    "handle": "Images of Text",
+    "level": "AA",
+    "title": "If the technologies being used can achieve the visual presentation, text is used to convey information rather than images of text except for the following:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Customizable",
+            "text": "The image of text can be visually customized to the user's requirements;"
+          },
+          {
+            "handle": "Essential",
+            "text": "A particular presentation of text is essential to the information being conveyed."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "Logotypes (text that is part of a logo or brand name) are considered essential."
+      }
+    ]
+  },
+  {
+    "num": "1.4.6",
+    "id": "contrast-enhanced",
+    "handle": "Contrast (Enhanced)",
+    "level": "AAA",
+    "title": "The visual presentation of text and images of text has a contrast ratio of at least 7:1, except for the following:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Large Text",
+            "text": "Large-scale text and images of large-scale text have a contrast ratio of at least 4.5:1;"
+          },
+          {
+            "handle": "Incidental",
+            "text": "Text or images of text that are part of an inactive user interface component, that are pure decoration, that are not visible to anyone, or that are part of a picture that contains significant other visual content, have no contrast requirement."
+          },
+          {
+            "handle": "Logotypes",
+            "text": "Text that is part of a logo or brand name has no contrast requirement."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "1.4.7",
+    "id": "low-or-no-background-audio",
+    "handle": "Low or No Background Audio",
+    "level": "AAA",
+    "title": "For prerecorded audio-only content that (1) contains primarily speech in the foreground, (2) is not an audio CAPTCHA or audio logo, and (3) is not vocalization intended to be primarily musical expression such as singing or rapping, at least one of the following is true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "No Background",
+            "text": "The audio does not contain background sounds."
+          },
+          {
+            "handle": "Turn Off",
+            "text": "The background sounds can be turned off."
+          },
+          {
+            "handle": "20 dB",
+            "text": "The background sounds are at least 20 decibels lower than the foreground speech content, with the exception of occasional sounds that last for only one or two seconds."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "Per the definition of \"decibel,\" background sound that meets this requirement will be approximately four times quieter than the foreground speech content."
+      }
+    ]
+  },
+  {
+    "num": "1.4.8",
+    "id": "visual-presentation",
+    "handle": "Visual Presentation",
+    "level": "AAA",
+    "title": "For the visual presentation of blocks of text, a mechanism is available to achieve the following:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "Foreground and background colors can be selected by the user."
+          },
+          {
+            "text": "Width is no more than 80 characters or glyphs (40 if CJK)."
+          },
+          {
+            "text": "Text is not justified (aligned to both the left and the right margins)."
+          },
+          {
+            "text": "Line spacing (leading) is at least space-and-a-half within paragraphs, and paragraph spacing is at least 1.5 times larger than the line spacing."
+          },
+          {
+            "text": "Text can be resized without assistive technology up to 200 percent in a way that does not require the user to scroll horizontally to read a line of text on a full-screen window."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "Content is not required to use these values. The requirement is that a mechanism is available for users to change these presentation aspects. The mechanism can be provided by the browser or other user agent. Content is not required to provide the mechanism."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Writing systems for some languages use different presentation aspects to improve readability and legibility. If a presentation aspect in this success criterion is not used in a writing system, content in that writing system does not need to use that presentation setting and can conform without it. Authors are encouraged to follow guidance for improving readability and legibility of text in their writing system."
+      }
+    ]
+  },
+  {
+    "num": "1.4.9",
+    "id": "images-of-text-no-exception",
+    "handle": "Images of Text (No Exception)",
+    "level": "AAA",
+    "title": "Images of text are only used for pure decoration or where a particular presentation of text is essential to the information being conveyed.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "Logotypes (text that is part of a logo or brand name) are considered essential."
+      }
+    ]
+  },
+  {
+    "num": "1.4.10",
+    "id": "reflow",
+    "handle": "Reflow",
+    "level": "AA",
+    "title": "Content can be presented without loss of information or functionality, and without requiring scrolling in two dimensions for:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "Vertical scrolling content at a width equivalent to 320 CSS pixels;"
+          },
+          {
+            "text": "Horizontal scrolling content at a height equivalent to 256 CSS pixels."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Except for parts of the content which require two-dimensional layout for usage or meaning."
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "320 CSS pixels is equivalent to a starting viewport width of 1280 CSS pixels wide at 400% zoom. For web content which is designed to scroll horizontally (e.g., with vertical text), 256 CSS pixels is equivalent to a starting viewport height of 1024 CSS pixels at 400% zoom."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Examples of content which requires two-dimensional layout are images required for understanding (such as maps and diagrams), video, games, presentations, data tables (not individual cells), and interfaces where it is necessary to keep toolbars in view while manipulating content. It is acceptable to provide two-dimensional scrolling for such parts of the content."
+      }
+    ]
+  },
+  {
+    "num": "1.4.11",
+    "id": "non-text-contrast",
+    "handle": "Non-text Contrast",
+    "level": "AA",
+    "title": "The visual presentation of the following have a contrast ratio of at least 3:1 against adjacent color(s):",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "User Interface Components",
+            "text": "Visual information required to identify user interface components and states, except for inactive components or where the appearance of the component is determined by the user agent and not modified by the author;"
+          },
+          {
+            "handle": "Graphical Objects",
+            "text": "Parts of graphics required to understand the content, except when a particular presentation of graphics is essential to the information being conveyed."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "1.4.12",
+    "id": "text-spacing",
+    "handle": "Text Spacing",
+    "level": "AA",
+    "title": "In content implemented using markup languages that support the following text style properties, no loss of content or functionality occurs by setting all of the following and by changing no other style property:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "Line height (line spacing) to at least 1.5 times the font size;"
+          },
+          {
+            "text": "Spacing following paragraphs to at least 2 times the font size;"
+          },
+          {
+            "text": "Letter spacing (tracking) to at least 0.12 times the font size;"
+          },
+          {
+            "text": "Word spacing to at least 0.16 times the font size."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Exception: Human languages and scripts that do not make use of one or more of these text style properties in written text can conform using only the properties that exist for that combination of language and script."
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "Content is not required to use these text spacing values. The requirement is to ensure that when a user overrides the authored text spacing, content or functionality is not lost."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Writing systems for some languages use different text spacing settings, such as paragraph start indent. Authors are encouraged to follow locally available guidance for improving readability and legibility of text in their writing system."
+      }
+    ]
+  },
+  {
+    "num": "1.4.13",
+    "id": "content-on-hover-or-focus",
+    "handle": "Content on Hover or Focus",
+    "level": "AA",
+    "title": "Where receiving and then removing pointer hover or keyboard focus triggers additional content to become visible and then hidden, the following are true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Dismissible",
+            "text": "A mechanism is available to dismiss the additional content without moving pointer hover or keyboard focus, unless the additional content communicates an input error or does not obscure or replace other content;"
+          },
+          {
+            "handle": "Hoverable",
+            "text": "If pointer hover can trigger the additional content, then the pointer can be moved  over the additional content without the additional content disappearing;"
+          },
+          {
+            "handle": "Persistent",
+            "text": "The additional content remains visible until the hover or focus trigger is removed, the user dismisses it, or its information is no longer valid."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Exception: The visual presentation of the additional content is controlled by the user agent and is not modified by the author."
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "Examples of additional content controlled by the user agent include browser tooltips created through use of the <abbr title=\"HyperText Markup Language\">HTML</abbr> title attribute [<cite>HTML</cite>]."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Custom tooltips, sub-menus, and other nonmodal popups that display on hover and focus are examples of additional content covered by this criterion."
+      },
+      {
+        "type": "note",
+        "handle": "Note 3",
+        "text": "This criterion applies to content that appears in addition to the triggering component itself. Since hidden components that are made visible on keyboard focus (such as links used to skip to another part of a page) do not present additional content they are not covered by this criterion."
+      }
+    ]
+  },
+  {
+    "num": "2.1.1",
+    "id": "keyboard",
+    "handle": "Keyboard",
+    "level": "A",
+    "title": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes, except where the underlying function requires input that depends on the path of the user's movement and not just the endpoints.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "This exception relates to the underlying function, not the input technique. For example, if using handwriting to enter text, the input technique (handwriting) requires path-dependent input but the underlying function (text input) does not."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "This does not forbid and should not discourage providing mouse input or other input methods in addition to keyboard operation."
+      }
+    ]
+  },
+  {
+    "num": "2.1.2",
+    "id": "no-keyboard-trap",
+    "handle": "No Keyboard Trap",
+    "level": "A",
+    "title": "If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be moved away from that component using only a keyboard interface, and, if it requires more than unmodified arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus away.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference."
+      }
+    ]
+  },
+  {
+    "num": "2.1.3",
+    "id": "keyboard-no-exception",
+    "handle": "Keyboard (No Exception)",
+    "level": "AAA",
+    "title": "All functionality of the content is operable through a keyboard interface without requiring specific timings for individual keystrokes.",
+    "details": []
+  },
+  {
+    "num": "2.1.4",
+    "id": "character-key-shortcuts",
+    "handle": "Character Key Shortcuts",
+    "level": "A",
+    "title": "If a keyboard shortcut is implemented in content using only letter (including upper- and lower-case letters), punctuation, number, or symbol characters, then at least one of the following is true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Turn off",
+            "text": "A mechanism is available to turn the shortcut off;"
+          },
+          {
+            "handle": "Remap",
+            "text": "A mechanism is available to remap the shortcut to include one or more non-printable keyboard keys (e.g., Ctrl, Alt);"
+          },
+          {
+            "handle": "Active only on focus",
+            "text": "The keyboard shortcut for a user interface component is only active when that component has focus."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "2.2.1",
+    "id": "timing-adjustable",
+    "handle": "Timing Adjustable",
+    "level": "A",
+    "title": "For each time limit that is set by the content, at least one of the following is true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Turn off",
+            "text": "The user is allowed to turn off the time limit before encountering it; or"
+          },
+          {
+            "handle": "Adjust",
+            "text": "The user is allowed to adjust the time limit before encountering it over a wide range that is at least ten times the length of the default setting; or"
+          },
+          {
+            "handle": "Extend",
+            "text": "The user is warned before time expires and given at least 20 seconds to extend the time limit with a simple action (for example, \"press the space bar\"), and the user is allowed to extend the time limit at least ten times; or"
+          },
+          {
+            "handle": "Real-time Exception",
+            "text": "The time limit is a required part of a real-time event (for example, an auction), and no alternative to the time limit is possible; or"
+          },
+          {
+            "handle": "Essential Exception",
+            "text": "The time limit is essential and extending it would invalidate the activity; or"
+          },
+          {
+            "handle": "20 Hour Exception",
+            "text": "The time limit is longer than 20 hours."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "This success criterion helps ensure that users can complete tasks without unexpected changes in content or context that are a result of a time limit. This success criterion should be considered in conjunction with Success Criterion 3.2.1, which puts limits on changes of content or context as a result of user action."
+      }
+    ]
+  },
+  {
+    "num": "2.2.2",
+    "id": "pause-stop-hide",
+    "handle": "Pause, Stop, Hide",
+    "level": "A",
+    "title": "For moving, blinking, scrolling, or auto-updating information, all of the following are true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Moving, blinking, scrolling",
+            "text": "For any moving, blinking or scrolling information that (1) starts automatically, (2) lasts more than five seconds, and (3) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it unless the movement, blinking, or scrolling is part of an activity where it is essential; and"
+          },
+          {
+            "handle": "Auto-updating",
+            "text": "For any auto-updating information that (1) starts automatically and (2) is presented in parallel with other content, there is a mechanism for the user to pause, stop, or hide it or to control the frequency of the update unless the auto-updating is part of an activity where it is essential."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "For requirements related to flickering or flashing content, refer to Guideline 2.3."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference."
+      },
+      {
+        "type": "note",
+        "handle": "Note 3",
+        "text": "Content that is updated periodically by software or that is streamed to the user agent is not required to preserve or present information that is generated or received between the initiation of the pause and resuming presentation, as this may not be technically possible, and in many situations could be misleading to do so."
+      },
+      {
+        "type": "note",
+        "handle": "Note 4",
+        "text": "An animation that occurs as part of a preload phase or similar situation can be considered essential if interaction cannot occur during that phase for all users and if not indicating progress could confuse users or cause them to think that content was frozen or broken."
+      }
+    ]
+  },
+  {
+    "num": "2.2.3",
+    "id": "no-timing",
+    "handle": "No Timing",
+    "level": "AAA",
+    "title": "Timing is not an essential part of the event or activity presented by the content, except for non-interactive synchronized media and real-time events.",
+    "details": []
+  },
+  {
+    "num": "2.2.4",
+    "id": "interruptions",
+    "handle": "Interruptions",
+    "level": "AAA",
+    "title": "Interruptions can be postponed or suppressed by the user, except interruptions involving an emergency.",
+    "details": []
+  },
+  {
+    "num": "2.2.5",
+    "id": "re-authenticating",
+    "handle": "Re-authenticating",
+    "level": "AAA",
+    "title": "When an authenticated session expires, the user can continue the activity without loss of data after re-authenticating.",
+    "details": []
+  },
+  {
+    "num": "2.2.6",
+    "id": "timeouts",
+    "handle": "Timeouts",
+    "level": "AAA",
+    "title": "Users are warned of the duration of any user inactivity that could cause data loss, unless the data is preserved for more than 20 hours when the user does not take any actions.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "Privacy regulations may require explicit user consent before user identification has been authenticated and before user data is preserved. In cases where the user is a minor, explicit consent may not be solicited in most jurisdictions, countries or regions. Consultation with privacy professionals and legal counsel is advised when considering data preservation as an approach to satisfy this success criterion."
+      }
+    ]
+  },
+  {
+    "num": "2.3.1",
+    "id": "three-flashes-or-below-threshold",
+    "handle": "Three Flashes or Below Threshold",
+    "level": "A",
+    "title": "Web pages do not contain anything that flashes more than three times in any one second period, or the flash is below the general flash and red flash thresholds.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "Since any content that does not meet this success criterion can interfere with a user's ability to use the whole page, all content on the web page (whether it is used to meet other success criteria or not) must meet this success criterion. See Conformance Requirement 5: Non-Interference."
+      }
+    ]
+  },
+  {
+    "num": "2.3.2",
+    "id": "three-flashes",
+    "handle": "Three Flashes",
+    "level": "AAA",
+    "title": "Web pages do not contain anything that flashes more than three times in any one second period.",
+    "details": []
+  },
+  {
+    "num": "2.3.3",
+    "id": "animation-from-interactions",
+    "handle": "Animation from Interactions",
+    "level": "AAA",
+    "title": "Motion animation triggered by interaction can be disabled, unless the animation is essential to the functionality or the information being conveyed.",
+    "details": []
+  },
+  {
+    "num": "2.4.1",
+    "id": "bypass-blocks",
+    "handle": "Bypass Blocks",
+    "level": "A",
+    "title": "A mechanism is available to bypass blocks of content that are repeated on multiple web pages.",
+    "details": []
+  },
+  {
+    "num": "2.4.2",
+    "id": "page-titled",
+    "handle": "Page Titled",
+    "level": "A",
+    "title": "Web pages have titles that describe topic or purpose.",
+    "details": []
+  },
+  {
+    "num": "2.4.3",
+    "id": "focus-order",
+    "handle": "Focus Order",
+    "level": "A",
+    "title": "If a web page can be navigated sequentially and the navigation sequences affect meaning or operation, focusable components receive focus in an order that preserves meaning and operability.",
+    "details": []
+  },
+  {
+    "num": "2.4.4",
+    "id": "link-purpose-in-context",
+    "handle": "Link Purpose (In Context)",
+    "level": "A",
+    "title": "The purpose of each link can be determined from the link text alone or from the link text together with its programmatically determined link context, except where the purpose of the link would be ambiguous to users in general.",
+    "details": []
+  },
+  {
+    "num": "2.4.5",
+    "id": "multiple-ways",
+    "handle": "Multiple Ways",
+    "level": "AA",
+    "title": "More than one way is available to locate a web page within a set of web pages except where the web page is the result of, or a step in, a process.",
+    "details": []
+  },
+  {
+    "num": "2.4.6",
+    "id": "headings-and-labels",
+    "handle": "Headings and Labels",
+    "level": "AA",
+    "title": "Headings and labels describe topic or purpose.",
+    "details": []
+  },
+  {
+    "num": "2.4.7",
+    "id": "focus-visible",
+    "handle": "Focus Visible",
+    "level": "AA",
+    "title": "Any keyboard operable user interface has a mode of operation where the keyboard focus indicator is visible.",
+    "details": []
+  },
+  {
+    "num": "2.4.8",
+    "id": "location",
+    "handle": "Location",
+    "level": "AAA",
+    "title": "Information about the user's location within a set of web pages is available.",
+    "details": []
+  },
+  {
+    "num": "2.4.9",
+    "id": "link-purpose-link-only",
+    "handle": "Link Purpose (Link Only)",
+    "level": "AAA",
+    "title": "A mechanism is available to allow the purpose of each link to be identified from link text alone, except where the purpose of the link would be ambiguous to users in general.",
+    "details": []
+  },
+  {
+    "num": "2.4.10",
+    "id": "section-headings",
+    "handle": "Section Headings",
+    "level": "AAA",
+    "title": "Section headings are used to organize the content.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "\"Heading\" is used in its general sense and includes titles and other ways to add a heading to different types of content."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "This success criterion covers sections within writing, not user interface components. User interface components are covered under Success Criterion 4.1.2."
+      }
+    ]
+  },
+  {
+    "num": "2.4.11",
+    "id": "focus-not-obscured-minimum",
+    "handle": "Focus Not Obscured (Minimum)",
+    "level": "AA",
+    "title": "When a user interface component receives keyboard focus, the component is not entirely hidden due to author-created content.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "Where content in a configurable interface can be repositioned by the user, then only the initial positions of user-movable content are considered for testing and conformance of this success criterion."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Content opened by the <em>user</em> may obscure the component receiving focus. If the user can reveal the focused component without advancing the keyboard focus, the component with focus is not considered visually hidden due to author-created content."
+      }
+    ]
+  },
+  {
+    "num": "2.4.12",
+    "id": "focus-not-obscured-enhanced",
+    "handle": "Focus Not Obscured (Enhanced)",
+    "level": "AAA",
+    "title": "When a user interface component receives keyboard focus, no part of the component is hidden by author-created content.",
+    "details": []
+  },
+  {
+    "num": "2.4.13",
+    "id": "focus-appearance",
+    "handle": "Focus Appearance",
+    "level": "AAA",
+    "title": "When the keyboard focus indicator is visible, an area of the focus indicator meets all the following:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "is at least as large as the area of a 2 CSS pixel thick perimeter of the unfocused component or sub-component, and"
+          },
+          {
+            "text": "has a contrast ratio of at least 3:1 between the same pixels in the focused and unfocused states."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Exceptions:"
+      },
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "The focus indicator is determined by the user agent and cannot be adjusted by the author, or"
+          },
+          {
+            "text": "The focus indicator and the indicator's background color are not modified by the author."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "What is perceived as the user interface component or sub-component (to determine the perimeter) depends on its visual presentation. The visual presentation includes the component's visible content, border, and component-specific background. It does not include shadow and glow effects outside the component's content, background, or border."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Examples of sub-components that may receive a focus indicator are menu items in an opened drop-down menu, or focusable cells in a grid."
+      },
+      {
+        "type": "note",
+        "handle": "Note 3",
+        "text": "Contrast calculations can be based on colors defined within the technology (such as <abbr title=\"HyperText Markup Language\">HTML</abbr>, CSS, and SVG). Pixels modified by user agent resolution enhancements and anti-aliasing can be ignored."
+      }
+    ]
+  },
+  {
+    "num": "2.5.1",
+    "id": "pointer-gestures",
+    "handle": "Pointer Gestures",
+    "level": "A",
+    "title": "All functionality that uses multipoint or path-based gestures for operation can be operated with a single pointer without a path-based gesture, unless a multipoint or path-based gesture is essential.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology)."
+      }
+    ]
+  },
+  {
+    "num": "2.5.2",
+    "id": "pointer-cancellation",
+    "handle": "Pointer Cancellation",
+    "level": "A",
+    "title": "For functionality that can be operated using a single pointer, at least one of the following is true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "No Down-Event",
+            "text": "The down-event of the pointer is not used to execute any part of the function;"
+          },
+          {
+            "handle": "Abort or Undo",
+            "text": "Completion of the function is on the up-event, and a mechanism is available to abort the function before completion or to undo the function after completion;"
+          },
+          {
+            "handle": "Up Reversal",
+            "text": "The up-event reverses any outcome of the preceding down-event;"
+          },
+          {
+            "handle": "Essential",
+            "text": "Completing the function on the down-event is essential."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "Functions that emulate a keyboard or numeric keypad key press are considered essential."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology)."
+      }
+    ]
+  },
+  {
+    "num": "2.5.3",
+    "id": "label-in-name",
+    "handle": "Label in Name",
+    "level": "A",
+    "title": "For user interface components with labels that include text or images of text, the name contains the text that is presented visually.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "A best practice is to have  the text of the label at the start of the name."
+      }
+    ]
+  },
+  {
+    "num": "2.5.4",
+    "id": "motion-actuation",
+    "handle": "Motion Actuation",
+    "level": "A",
+    "title": "Functionality that can be operated by device motion or user motion can also be operated by user interface components and responding to the motion can be disabled to prevent accidental actuation, except when:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Supported Interface",
+            "text": "The motion is used to operate functionality through an accessibility supported interface;"
+          },
+          {
+            "handle": "Essential",
+            "text": "The motion is essential for the function and doing so would invalidate the activity."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "2.5.5",
+    "id": "target-size-enhanced",
+    "handle": "Target Size (Enhanced)",
+    "level": "AAA",
+    "title": "The size of the target for pointer inputs is at least 44 by 44 CSS pixels except when:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Equivalent",
+            "text": "The target is available through an equivalent link or control on the same page that is at least 44 by 44 CSS pixels;"
+          },
+          {
+            "handle": "Inline",
+            "text": "The target is in a sentence or block of text;"
+          },
+          {
+            "handle": "User Agent Control",
+            "text": "The size of the target is determined by the user agent and is not modified by the author;"
+          },
+          {
+            "handle": "Essential",
+            "text": "A particular presentation of the target is essential to the information being conveyed."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "2.5.6",
+    "id": "concurrent-input-mechanisms",
+    "handle": "Concurrent Input Mechanisms",
+    "level": "AAA",
+    "title": "Web content does not restrict use of input modalities available on a platform except where the restriction is essential, required to ensure the security of the content, or required to respect user settings.",
+    "details": []
+  },
+  {
+    "num": "2.5.7",
+    "id": "dragging-movements",
+    "handle": "Dragging Movements",
+    "level": "AA",
+    "title": "All functionality that uses a dragging movement for operation can be achieved by a single pointer without dragging, unless dragging is essential or the functionality is determined by the user agent and not modified by the author.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "This requirement applies to web content that interprets pointer actions (i.e., this does not apply to actions that are required to operate the user agent or assistive technology)."
+      }
+    ]
+  },
+  {
+    "num": "2.5.8",
+    "id": "target-size-minimum",
+    "handle": "Target Size (Minimum)",
+    "level": "AA",
+    "title": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except when:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Spacing",
+            "text": "Undersized targets (those less than 24 by 24 CSS pixels) are positioned so that if a 24 CSS pixel diameter circle is centered on the bounding box of each, the circles do not intersect another target or the circle for another undersized target;"
+          },
+          {
+            "handle": "Equivalent",
+            "text": "The function can be achieved through a different control on the same page that meets this criterion;"
+          },
+          {
+            "handle": "Inline",
+            "text": "The target is in a sentence or its size is otherwise constrained by the line-height of non-target text;"
+          },
+          {
+            "handle": "User Agent Control",
+            "text": "The size of the target is determined by the user agent and is not modified by the author;"
+          },
+          {
+            "handle": "Essential",
+            "text": "A particular presentation of the target is essential or is legally required for the information being conveyed."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "Targets that allow for values to be selected spatially based on position within the target are considered one target for the purpose of the success criterion. Examples include sliders, color pickers displaying a gradient of colors, or editable areas where you position the cursor."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "For inline targets the line-height should be interpreted as perpendicular to the flow of text. For example, in a language displayed vertically, the line-height would be horizontal."
+      }
+    ]
+  },
+  {
+    "num": "3.1.1",
+    "id": "language-of-page",
+    "handle": "Language of Page",
+    "level": "A",
+    "title": "The default human language of each web page can be programmatically determined.",
+    "details": []
+  },
+  {
+    "num": "3.1.2",
+    "id": "language-of-parts",
+    "handle": "Language of Parts",
+    "level": "AA",
+    "title": "The human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text.",
+    "details": []
+  },
+  {
+    "num": "3.1.3",
+    "id": "unusual-words",
+    "handle": "Unusual Words",
+    "level": "AAA",
+    "title": "A mechanism is available for identifying specific definitions of words or phrases used in an unusual or restricted way, including idioms and jargon.",
+    "details": []
+  },
+  {
+    "num": "3.1.4",
+    "id": "abbreviations",
+    "handle": "Abbreviations",
+    "level": "AAA",
+    "title": "A mechanism for identifying the expanded form or meaning of abbreviations is available.",
+    "details": []
+  },
+  {
+    "num": "3.1.5",
+    "id": "reading-level",
+    "handle": "Reading Level",
+    "level": "AAA",
+    "title": "When text requires reading ability more advanced than the lower secondary education level after removal of proper names and titles, supplemental content, or a version that does not require reading ability more advanced than the lower secondary education level, is available.",
+    "details": []
+  },
+  {
+    "num": "3.1.6",
+    "id": "pronunciation",
+    "handle": "Pronunciation",
+    "level": "AAA",
+    "title": "A mechanism is available for identifying specific pronunciation of words where meaning of the words, in context, is ambiguous without knowing the pronunciation.",
+    "details": []
+  },
+  {
+    "num": "3.2.1",
+    "id": "on-focus",
+    "handle": "On Focus",
+    "level": "A",
+    "title": "When any user interface component receives focus, it does not initiate a change of context.",
+    "details": []
+  },
+  {
+    "num": "3.2.2",
+    "id": "on-input",
+    "handle": "On Input",
+    "level": "A",
+    "title": "Changing the setting of any user interface component does not automatically cause a change of context unless the user has been advised of the behavior before using the component.",
+    "details": []
+  },
+  {
+    "num": "3.2.3",
+    "id": "consistent-navigation",
+    "handle": "Consistent Navigation",
+    "level": "AA",
+    "title": "Navigational mechanisms that are repeated on multiple web pages within a set of web pages occur in the same relative order each time they are repeated, unless a change is initiated by the user.",
+    "details": []
+  },
+  {
+    "num": "3.2.4",
+    "id": "consistent-identification",
+    "handle": "Consistent Identification",
+    "level": "AA",
+    "title": "Components that have the same functionality within a set of web pages are identified consistently.",
+    "details": []
+  },
+  {
+    "num": "3.2.5",
+    "id": "change-on-request",
+    "handle": "Change on Request",
+    "level": "AAA",
+    "title": "Changes of context are initiated only by user request or a mechanism is available to turn off such changes.",
+    "details": []
+  },
+  {
+    "num": "3.2.6",
+    "id": "consistent-help",
+    "handle": "Consistent Help",
+    "level": "A",
+    "title": "If a web page contains any of the following help mechanisms, and those mechanisms are repeated on multiple web pages within a set of web pages, they occur in the same order relative to other page content, unless a change is initiated by the user:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "Human contact details;"
+          },
+          {
+            "text": "Human contact mechanism;"
+          },
+          {
+            "text": "Self-help option;"
+          },
+          {
+            "text": "A fully automated contact mechanism."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "Help mechanisms may be provided directly on the page, or may be provided via a direct link to a different page containing the information."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "For this success criterion, \"the same order relative to other page content\" can be thought of as how the content is ordered when the page is serialized. The visual position of a help mechanism is likely to be consistent across pages for the same page variation (e.g., CSS break-point). The user can initiate a change, such as changing the page's zoom or orientation, which may trigger a different page variation. This criterion is concerned with relative order across pages displayed in the same page variation (e.g., same zoom level and orientation)."
+      }
+    ]
+  },
+  {
+    "num": "3.3.1",
+    "id": "error-identification",
+    "handle": "Error Identification",
+    "level": "A",
+    "title": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
+    "details": []
+  },
+  {
+    "num": "3.3.2",
+    "id": "labels-or-instructions",
+    "handle": "Labels or Instructions",
+    "level": "A",
+    "title": "Labels or instructions are provided when content requires user input.",
+    "details": []
+  },
+  {
+    "num": "3.3.3",
+    "id": "error-suggestion",
+    "handle": "Error Suggestion",
+    "level": "AA",
+    "title": "If an input error is automatically detected and suggestions for correction are known, then the suggestions are provided to the user, unless it would jeopardize the security or purpose of the content.",
+    "details": []
+  },
+  {
+    "num": "3.3.4",
+    "id": "error-prevention-legal-financial-data",
+    "handle": "Error Prevention (Legal, Financial, Data)",
+    "level": "AA",
+    "title": "For web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Reversible",
+            "text": "Submissions are reversible."
+          },
+          {
+            "handle": "Checked",
+            "text": "Data entered by the user is checked for input errors and the user is provided an opportunity to correct them."
+          },
+          {
+            "handle": "Confirmed",
+            "text": "A mechanism is available for reviewing, confirming, and correcting information before finalizing the submission."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "3.3.5",
+    "id": "help",
+    "handle": "Help",
+    "level": "AAA",
+    "title": "Context-sensitive help is available.",
+    "details": []
+  },
+  {
+    "num": "3.3.6",
+    "id": "error-prevention-all",
+    "handle": "Error Prevention (All)",
+    "level": "AAA",
+    "title": "For web pages that require the user to submit information, at least one of the following is true:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Reversible",
+            "text": "Submissions are reversible."
+          },
+          {
+            "handle": "Checked",
+            "text": "Data entered by the user is checked for input errors and the user is provided an opportunity to correct them."
+          },
+          {
+            "handle": "Confirmed",
+            "text": "A mechanism is available for reviewing, confirming, and correcting information before finalizing the submission."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "3.3.7",
+    "id": "redundant-entry",
+    "handle": "Redundant Entry",
+    "level": "A",
+    "title": "Information previously entered by or provided to the user that is required to be entered again in the same process is either:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "auto-populated, or"
+          },
+          {
+            "text": "available for the user to select."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Except when:"
+      },
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "text": "re-entering the information is essential,"
+          },
+          {
+            "text": "the information is required to ensure the security of the content, or"
+          },
+          {
+            "text": "previously entered information is no longer valid."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "3.3.8",
+    "id": "accessible-authentication-minimum",
+    "handle": "Accessible Authentication (Minimum)",
+    "level": "AA",
+    "title": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Alternative",
+            "text": "Another authentication method that does not rely on a cognitive function test."
+          },
+          {
+            "handle": "Mechanism",
+            "text": "A mechanism is available to assist the user in completing the cognitive function test."
+          },
+          {
+            "handle": "Object Recognition",
+            "text": "The cognitive function test is to recognize objects."
+          },
+          {
+            "handle": "Personal Content",
+            "text": "The cognitive function test is to identify non-text content the user provided to the website."
+          }
+        ]
+      },
+      {
+        "type": "note",
+        "handle": "Note 1",
+        "text": "\"Object recognition\" and \"Personal content\" may be represented by images, video, or audio."
+      },
+      {
+        "type": "note",
+        "handle": "Note 2",
+        "text": "Examples of mechanisms that satisfy this criterion include: <ul> <li>support for password entry by password managers to reduce memory need, and</li> <li>copy and paste to reduce the cognitive burden of re-typing.</li> </ul>"
+      }
+    ]
+  },
+  {
+    "num": "3.3.9",
+    "id": "accessible-authentication-enhanced",
+    "handle": "Accessible Authentication (Enhanced)",
+    "level": "AAA",
+    "title": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following:",
+    "details": [
+      {
+        "type": "ulist",
+        "items": [
+          {
+            "handle": "Alternative",
+            "text": "Another authentication method that does not rely on a cognitive function test."
+          },
+          {
+            "handle": "Mechanism",
+            "text": "A mechanism is available to assist the user in completing the cognitive function test."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "num": "4.1.1",
+    "id": "parsing",
+    "handle": "Parsing (Obsolete and removed)",
+    "level": "",
+    "title": "This criterion was originally adopted to address problems that assistive technology had directly parsing HTML. Assistive technology no longer has any need to directly parse HTML. Consequently, these problems either no longer exist or are addressed by other criteria. This criterion no longer has utility and is removed.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "This criterion was originally adopted to address problems that assistive technology had directly parsing <abbr title=\"HyperText Markup Language\">HTML</abbr>. Assistive technology no longer has any need to directly parse <abbr title=\"HyperText Markup Language\">HTML</abbr>. Consequently, these problems either no longer exist or are addressed by other criteria. This criterion no longer has utility and is removed."
+      }
+    ]
+  },
+  {
+    "num": "4.1.2",
+    "id": "name-role-value",
+    "handle": "Name, Role, Value",
+    "level": "A",
+    "title": "For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.",
+    "details": [
+      {
+        "type": "note",
+        "handle": "Note",
+        "text": "This success criterion is primarily for web authors who develop or script their own user interface components. For example, standard <abbr title=\"HyperText Markup Language\">HTML</abbr> controls already meet this success criterion when used according to specification."
+      }
+    ]
+  },
+  {
+    "num": "4.1.3",
+    "id": "status-messages",
+    "handle": "Status Messages",
+    "level": "AA",
+    "title": "In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus.",
+    "details": []
   }
 ];
 
@@ -2476,12 +1461,11 @@ class SuccessCriterion extends HTMLElement {
         this.attachShadow({ mode: "open" });
     }
 
-    criteria = [];
     number = "";
-    mode = 'selector';
+    mode = 'detailed';
 
     get criterion() {
-        return this.criteria.find(({ ref_id }) => ref_id === this.number);
+        return WCAG_DATA.find(({ num }) => num === this.number);
     }
 
     static get observedAttributes() {
@@ -2489,7 +1473,6 @@ class SuccessCriterion extends HTMLElement {
     }
 
     connectedCallback() {
-        this.getSuccessCriteria();
         this.render();
     }
 
@@ -2505,167 +1488,122 @@ class SuccessCriterion extends HTMLElement {
         }
     }
 
-    getSuccessCriteria() {
-        const criteria = [];
-        WCAG_DATA.forEach((principle) => {
-            principle.guidelines.forEach((guideline) => {
-                guideline.success_criteria.forEach((criterion) => {
-                    criteria.push(criterion);
-                });
-            });
-        });
-        this.criteria = criteria;
-    }
-
     render() {
-        if (this.criteria.length === 0) return;
+        const c = this.criterion;
+        if (!c) {
+            this.shadowRoot.innerHTML = '';
+            return;
+        }
+
+        const understandingUrl = `https://www.w3.org/WAI/WCAG22/Understanding/${c.id}`;
+        const quickrefUrl = `https://www.w3.org/WAI/WCAG22/quickref/#${c.id}`;
 
         const styles = `
-        [hidden] { display: none !important; }
-         :host {
-             --sc-font-size: 16px;
-             --sc-font-family: sans-serif;
-             --sc-bg-dark: #333;
-             --sc-bg-light: #efefef;
+        :host {
+            --sc-font-size: 16px;
+            --sc-font-family: sans-serif;
+            --sc-bg-dark: #333;
+            --sc-bg-light: #efefef;
 
-             display: contents;
-             font-family: var(--sc-font-family);
-             font-size: var(--sc-font-size);
-             line-height: 1.5;
-             border: 1px solid light-dark(var(--sc-bg-dark), var(--sc-bg-light));
-             border-radius: 3px;
-
-             * {
-                margin: 0;
-                padding: 0;
-             }
-             code {
-                font-size: .875em;
-                background-color: light-dark(var(--sc-bg-dark), var(--sc-bg-light));
-                color: light-dark(var(--sc-bg-light), var(--sc-bg-dark));
-                padding-inline: 4px;
-                border-radius: 3px;
-             }
-             ul {
-                margin-inline-start: 1em;
-             }
-             dt {
-                font-weight: bold;
-             }
-             dd {
-                text-indent: 1em;
-             }
-             .sc-title {
-                font-weight: bold;
-                font-size: 1.125em;
-             }
-             .sc-level {
-                font-size: .625em;
-                font-weight: normal;
-                padding-inline: 2px;
-                border: 1px solid light-dark(var(--sc-bg-dark), var(--sc-bg-light));
-                border-radius: 3px;
-             }
-             .sc-link-icon {
-                aspect-ratio: 1;
-                height: .825em;
-             }
-         }
-         :host([data-number]) {
-            select, details {
-                display: none;
-            }
-         }
-         :host([data-mode="select"]) {
-            details {
-                display: none;
-            }
-         }
-         :host([data-mode="simple"]), :host([data-mode="tiny"]) {
-             border: none;
-             padding: 0;
-         }
+            display: contents;
+            font-family: var(--sc-font-family);
+            font-size: var(--sc-font-size);
+            line-height: 1.5;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        dl {
+            margin-block: 0.5em;
+        }
+        dt {
+            font-weight: bold;
+            margin-top: 0.5em;
+        }
+        dd {
+            margin-inline-start: 1em;
+        }
+        .sc-title {
+            font-weight: bold;
+            font-size: 1.125em;
+        }
+        .sc-level {
+            font-size: .625em;
+            font-weight: normal;
+            padding: 1px 4px;
+            border: 1px solid currentColor;
+            border-radius: 3px;
+            vertical-align: middle;
+        }
+        .sc-description {
+            margin-block: 0.5em;
+        }
+        .sc-link-icon {
+            width: 0.75em;
+            height: 0.75em;
+            vertical-align: baseline;
+        }
+        .references {
+            margin-top: 1em;
+            display: flex;
+            gap: 1em;
+            flex-wrap: wrap;
+        }
+        .references a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25em;
+        }
         `;
 
-        const tiny = c =>
-        `<a
-            class="sc-info sc--simple sc--tiny"
-            href="${c.references[1].url}"
-            title="${c.ref_id} - ${c.title}"
-            target="_blank" rel="noopener noreferrer">
-            <span>${c.ref_id}</span>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="sc-link-icon sc--tiny sc--simple"
-                viewBox="0 0 24 24">
-                <use href="#external-link-icon"></use>
-            </svg></a>`;
+        const linkIcon = `<svg class="sc-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>`;
 
-        const simple = c =>
-        `<a
-            class="sc-info sc--simple sc--tiny"
-            href="${c.references[1].url}"
-            title="${c.ref_id} - ${c.title}"
-            target="_blank" rel="noopener noreferrer">
-            <span>${c.ref_id}</span>
-            <span class="sc--simple">&nbsp;- ${c.title}</span>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="sc-link-icon sc--tiny sc--simple"
-                viewBox="0 0 24 24">
-                <use href="#external-link-icon"></use>
-            </svg></a>`;
+        if (this.mode === 'tiny') {
+            this.shadowRoot.innerHTML = `
+                <style>${styles}</style>
+                <a href="${quickrefUrl}" title="${c.num} ${c.handle}" target="_blank" rel="noopener noreferrer">
+                    ${c.num}${linkIcon}
+                </a>`;
+            return;
+        }
 
-        const detailed = c =>
-        `<div class="sc-detailed">
-            <span class="sc-title">
-                ${c.ref_id} - ${c.title}
-                <span class="sc-level">${c.level}</span>
-            </span>
-            <p class="sc-description">${c.description}</p>
-            ${c.special_cases
-                ? `<dl>${c.special_cases
-                      .map(({ title, description }) =>
-                          `<dt>${title}</dt><dd>${description}</dd>`
-                      )
-                      .join("")}</dl>`
-                : ""
-            }
-        <div class="references">
-          <a class="sc-how-to-meet" href="${c.references[1].url}" target="_blank" rel="noopener noreferrer">
-            ${c.references[1].title}
-            <svg class="sc-link-icon" width="16" height="16" viewBox="0 0 24 24"><use href="#external-link-icon"></use></svg>
-          </a>
-          <a class="sc-understanding-link" href="${c.references[0].url}" target="_blank" rel="noopener noreferrer">
-            ${c.references[0].title}
-            <svg class="sc-link-icon" width="16" height="16" viewBox="0 0 24 24"><use href="#external-link-icon"></use></svg>
-          </a>
-        </div>
-        <details id="sc-selection-instructions" class="sc-selection-instructions">
-          <summary>How to use this web component</summary>
-          <ul>
-            <li>To display as single success criterion (without the select), add the <code>data-number="[wcagNumber]"</code>.</li>
-            <li>To control how much information is shown, use <code>data-mode</code> with values of <code>detailed</code>, <code>simple</code>, or <code>tiny</code>.</li>
-            <li>To hide these instructions add keep the select add <code>data-mode="select"</code>.</li>
-          </ul>
-        </details>
-      </div>`;
+        if (this.mode === 'simple') {
+            this.shadowRoot.innerHTML = `
+                <style>${styles}</style>
+                <a href="${quickrefUrl}" title="${c.num} ${c.handle}" target="_blank" rel="noopener noreferrer">
+                    ${c.num} ${c.handle}${linkIcon}
+                </a>`;
+            return;
+        }
+
+        // Detailed mode
+        const details = c.details?.[0]?.items?.map(item =>
+            `<dt>${item.handle}</dt><dd>${item.text}</dd>`
+        ).join('') || '';
 
         this.shadowRoot.innerHTML = `
-        <style>${styles}</style>
-        <svg xmlns="http://www.w3.org/2000/svg" hidden>
-            <defs>
-                <g id="external-link-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16" height="16">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                </g>
-            </defs>
-        </svg>
-
-        ${this.criterion && this.mode === 'tiny' ? tiny(this.criterion) : ''}
-        ${this.criterion && this.mode === 'simple' ? simple(this.criterion) : ''}
-        ${this.criterion && !['tiny', 'simple'].includes(this.mode) ? detailed(this.criterion) : ''}`;
+            <style>${styles}</style>
+            <div class="sc-detailed">
+                <p class="sc-title">
+                    ${c.num} ${c.handle}
+                    <span class="sc-level">${c.level}</span>
+                </p>
+                <p class="sc-description">${c.title}</p>
+                ${details ? `<dl>${details}</dl>` : ''}
+                <div class="references">
+                    <a href="${understandingUrl}" target="_blank" rel="noopener noreferrer">
+                        Understanding ${c.num}${linkIcon}
+                    </a>
+                    <a href="${quickrefUrl}" target="_blank" rel="noopener noreferrer">
+                        How to Meet ${c.num}${linkIcon}
+                    </a>
+                </div>
+            </div>`;
     }
 }
 

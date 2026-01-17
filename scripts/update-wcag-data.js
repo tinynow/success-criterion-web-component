@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Fetches the latest WCAG 2.2 data from tenon-io/wcag-as-json
+ * Fetches the latest WCAG 2.2 data from the official W3C source
  * and generates success-criterion.js with embedded data.
  *
  * Usage: node scripts/update-wcag-data.js
@@ -12,7 +12,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const WCAG_URL = 'https://raw.githubusercontent.com/tenon-io/wcag-as-json/refs/heads/master/wcag.json';
+const WCAG_URL = 'https://www.w3.org/WAI/WCAG22/wcag.json';
 const TEMPLATE_PATH = path.join(__dirname, '..', 'src', 'component.js');
 const OUTPUT_PATH = path.join(__dirname, '..', 'success-criterion.js');
 const PLACEHOLDER = '/* WCAG_DATA_PLACEHOLDER */[]';
@@ -34,24 +34,35 @@ function fetch(url) {
 }
 
 async function main() {
-    console.log('Fetching WCAG data from tenon-io/wcag-as-json...');
+    console.log('Fetching WCAG 2.2 data from W3C...');
 
     try {
         const data = await fetch(WCAG_URL);
-        const json = JSON.parse(data);
+        const wcag = JSON.parse(data);
 
         // Validate structure
-        if (!Array.isArray(json) || json.length === 0) {
-            throw new Error('Invalid WCAG data structure: expected non-empty array');
+        if (!wcag.principles || !Array.isArray(wcag.principles)) {
+            throw new Error('Invalid WCAG data structure: expected principles array');
         }
 
-        // Count success criteria
-        let criteriaCount = 0;
-        for (const principle of json) {
+        // Extract just the success criteria with the fields we need
+        const criteria = [];
+        for (const principle of wcag.principles) {
             for (const guideline of principle.guidelines || []) {
-                criteriaCount += (guideline.success_criteria || []).length;
+                for (const sc of guideline.successcriteria || []) {
+                    criteria.push({
+                        num: sc.num,
+                        id: sc.id,
+                        handle: sc.handle,
+                        level: sc.level,
+                        title: sc.title,
+                        details: sc.details
+                    });
+                }
             }
         }
+
+        console.log(`Extracted ${criteria.length} success criteria`);
 
         // Read template
         console.log('Reading template from src/component.js...');
@@ -63,14 +74,14 @@ async function main() {
 
         // Generate output with embedded data
         console.log('Generating success-criterion.js with embedded data...');
-        const output = template.replace(PLACEHOLDER, JSON.stringify(json, null, 2));
+        const output = template.replace(PLACEHOLDER, JSON.stringify(criteria, null, 2));
 
         fs.writeFileSync(OUTPUT_PATH, output, 'utf8');
 
         const stats = fs.statSync(OUTPUT_PATH);
         const sizeKB = (stats.size / 1024).toFixed(1);
 
-        console.log(`Success! Generated success-criterion.js with ${criteriaCount} success criteria (${sizeKB} KB)`);
+        console.log(`Success! Generated success-criterion.js (${sizeKB} KB)`);
     } catch (error) {
         console.error('Error:', error.message);
         process.exit(1);
