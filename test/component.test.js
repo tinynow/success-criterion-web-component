@@ -311,6 +311,14 @@ describe('SuccessCriterion Web Component', () => {
                 assert.ok(firstOption.textContent.includes('Select'));
             });
 
+            it('should have aria-label for accessibility', () => {
+                const el = document.createElement('success-criterion');
+                document.body.appendChild(el);
+
+                const select = el.shadowRoot.querySelector('select');
+                assert.ok(select.getAttribute('aria-label'), 'Select should have aria-label');
+            });
+
             it('should list all WCAG criteria as options', () => {
                 const el = document.createElement('success-criterion');
                 document.body.appendChild(el);

@@ -1510,7 +1510,7 @@ class SuccessCriterion extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
             <style>${styles}</style>
-            <select>
+            <select aria-label="Select WCAG success criterion">
                 <option value="">Select criterion…</option>
                 ${options}
             </select>`;

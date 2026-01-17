@@ -2,24 +2,48 @@
   "name": "success-criterion",
   "version": "1.0.0",
   "type": "module",
-  "description": "A web component for displaying WCAG success criteria",
+  "description": "A web component for displaying WCAG 2.2 success criteria",
   "main": "success-criterion.js",
+  "module": "success-criterion.js",
+  "browser": "success-criterion.js",
+  "unpkg": "success-criterion.min.js",
+  "jsdelivr": "success-criterion.min.js",
+  "exports": {
+    ".": {
+      "import": "./success-criterion.js",
+      "default": "./success-criterion.js"
+    },
+    "./min": "./success-criterion.min.js"
+  },
+  "files": [
+    "success-criterion.js",
+    "success-criterion.min.js",
+    "src/"
+  ],
+  "sideEffects": true,
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/tinynow/success-criterion-web-component.git"
   },
+  "homepage": "https://github.com/tinynow/success-criterion-web-component#readme",
+  "bugs": {
+    "url": "https://github.com/tinynow/success-criterion-web-component/issues"
+  },
   "keywords": [
     "wcag",
+    "wcag22",
     "accessibility",
     "a11y",
     "web-component",
+    "custom-element",
     "success-criteria"
   ],
   "scripts": {
     "test": "node --test test/*.test.js",
     "test:watch": "node --test --watch test/*.test.js",
-    "update-data": "node scripts/update-wcag-data.cjs",
+    "build": "node scripts/update-wcag-data.js",
+    "prepublishOnly": "npm run build && npm test",
     "serve": "npx serve ."
   },
   "devDependencies": {

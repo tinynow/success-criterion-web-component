@@ -6,3 +6,13 @@ logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# OS
+.DS_Store
+
+# Editor/Tools
+.claude/
+
+# Issue tracking (local only)
+.beads/
+beads/

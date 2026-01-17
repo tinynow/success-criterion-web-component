@@ -7,6 +7,10 @@ A web component for displaying WCAG 2.2 success criteria. No build step required
 ### CDN
 
 ```html
+<!-- Minified (recommended for production) -->
+<script src="https://unpkg.com/success-criterion/success-criterion.min.js"></script>
+
+<!-- Or readable version -->
 <script src="https://unpkg.com/success-criterion"></script>
 ```
 
@@ -52,13 +56,16 @@ import 'success-criterion'
 # Start local server
 npm run serve
 
-# Update WCAG data (when WCAG spec updates)
-npm run update-data
+# Build (fetches latest WCAG data and generates both JS files)
+npm run build
+
+# Run tests
+npm test
 ```
 
 ## How It Works
 
-WCAG data from [tenon-io/wcag-as-json](https://github.com/tenon-io/wcag-as-json) is embedded directly in `success-criterion.js`. No runtime fetching required.
+WCAG data is fetched from the [official W3C WCAG 2.2 JSON](https://www.w3.org/WAI/WCAG22/wcag.json) and embedded directly in the component. No runtime fetching required.
 
 ## License
 
