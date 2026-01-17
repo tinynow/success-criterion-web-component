@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Criterion Web Component</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
+    h1 { margin-bottom: 0.5rem; }
+    hr { margin: 2rem 0; }
+    code {
+      background: #f4f4f4;
+      padding: 0.125rem 0.25rem;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h1>WCAG Success Criterion Web Component</h1>
+  <p>Easily reference success criteria by adding the <code>&lt;success-criterion&gt;</code> web component.</p>
+  <p>Can be displayed with varying amounts of information including number, name, description, level, and links to documentation.</p>
+
+  <h2>Demos</h2>
+
+  <h3>Tiny mode</h3>
+  <p>This page does not meet the following success criteria:
+    <success-criterion data-mode="tiny" data-number="1.2.3"></success-criterion>,
+    <success-criterion data-mode="tiny" data-number="1.4.3"></success-criterion>,
+    <success-criterion data-mode="tiny" data-number="3.3.6"></success-criterion> and
+    <success-criterion data-mode="tiny" data-number="4.1.2"></success-criterion>.
+  </p>
+
+  <hr>
+
+  <h3>Simple mode</h3>
+  <p>We are required to add audio descriptions to videos as per
+    <success-criterion data-mode="simple" data-number="1.2.3"></success-criterion>
+  </p>
+
+  <hr>
+
+  <h3>Detailed mode (default)</h3>
+  <success-criterion data-number="1.4.3"></success-criterion>
+
+  <hr>
+
+  <h3>No data-number specified</h3>
+  <success-criterion></success-criterion>
+
+  <script src="./success-criterion.js"></script>
+</body>
+</html>
