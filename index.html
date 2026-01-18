@@ -3,56 +3,581 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Success Criterion Web Component</title>
+  <title>Success Criterion - WCAG 2.2 Web Component</title>
   <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
-    h1 { margin-bottom: 0.5rem; }
-    hr { margin: 2rem 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 52rem;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+    }
+    a {
+      color: #0066cc;
+    }
+    a:hover {
+      color: #004999;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 2rem;
+    }
+    header p {
+      margin: 0;
+      color: #555;
+      font-size: 1.125rem;
+    }
+
+    /* Generator */
+    .generator {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .generator h2 {
+      margin: 0 0 1rem;
+      font-size: 1.25rem;
+    }
+    .controls {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      flex: 1;
+      min-width: 200px;
+    }
+    .control-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #555;
+    }
+    .control-group select {
+      font: inherit;
+      font-size: 1rem;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+    }
+    .control-group select:focus {
+      outline: 2px solid #0066cc;
+      outline-offset: 1px;
+    }
+
+    /* Preview */
+    .preview {
+      background: white;
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .preview-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .preview-content {
+      min-height: 2rem;
+    }
+
+    /* Output tabs */
+    .output-section {
+      margin-top: 1.5rem;
+    }
+    .tabs {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #dee2e6;
+    }
+    .tab-btn {
+      font: inherit;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      cursor: pointer;
+      color: #555;
+      margin-bottom: -1px;
+    }
+    .tab-btn:hover {
+      color: #1a1a1a;
+    }
+    .tab-btn.active {
+      background: white;
+      border-color: #dee2e6;
+      color: #1a1a1a;
+      font-weight: 500;
+    }
+    .tab-content {
+      display: none;
+      position: relative;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .code-block {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      border-radius: 0 4px 4px 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font: inherit;
+      font-size: 0.75rem;
+      padding: 0.375rem 0.625rem;
+      background: #333;
+      color: #d4d4d4;
+      border: 1px solid #555;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .copy-btn:hover {
+      background: #444;
+    }
+    .copy-btn.copied {
+      background: #28a745;
+      border-color: #28a745;
+      color: white;
+    }
+    .copy-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 2rem;
+    }
+    nav a {
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Documentation sections */
+    section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 1rem;
+    }
+    section h2 {
+      font-size: 1.5rem;
+      margin: 0 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    section h3 {
+      font-size: 1.125rem;
+      margin: 1.5rem 0 0.75rem;
+    }
     code {
       background: #f4f4f4;
-      padding: 0.125rem 0.25rem;
+      padding: 0.125rem 0.375rem;
       border-radius: 3px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
+      font-size: 0.9em;
+    }
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+    pre code {
+      background: none;
+      padding: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9375rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+    th {
+      font-weight: 600;
+      background: #f8f9fa;
+    }
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: #666;
+      font-size: 0.875rem;
+    }
+    footer a {
+      color: inherit;
     }
   </style>
 </head>
 <body>
-  <h1>WCAG Success Criterion Web Component</h1>
-  <p>Easily reference success criteria by adding the <code>&lt;success-criterion&gt;</code> web component.</p>
-  <p>Can be displayed with varying amounts of information including number, name, description, level, and links to documentation.</p>
+  <header>
+    <h1>Success Criterion</h1>
+    <p>A web component for displaying WCAG 2.2 success criteria</p>
+  </header>
 
-  <h2>Demos</h2>
+  <main>
+    <!-- Generator -->
+    <div class="generator">
+      <h2>Generator</h2>
+      <div class="controls">
+        <div class="control-group">
+          <label for="criterion-select">Success Criterion</label>
+          <select id="criterion-select">
+            <!-- Options populated by JS -->
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="mode-select">Display Mode</label>
+          <select id="mode-select">
+            <option value="detailed">Detailed</option>
+            <option value="simple">Simple</option>
+            <option value="tiny">Tiny</option>
+          </select>
+        </div>
+      </div>
 
-  <h3>Tiny mode</h3>
-  <p>This page does not meet the following success criteria:
-    <success-criterion data-mode="tiny" data-number="1.2.3"></success-criterion>,
-    <success-criterion data-mode="tiny" data-number="1.4.3"></success-criterion>,
-    <success-criterion data-mode="tiny" data-number="3.3.6"></success-criterion> and
-    <success-criterion data-mode="tiny" data-number="4.1.2"></success-criterion>.
-  </p>
+      <div class="preview">
+        <div class="preview-label">Live Preview</div>
+        <div class="preview-content" id="preview-content">
+          <success-criterion id="preview-component" data-number="1.4.3" data-mode="detailed"></success-criterion>
+        </div>
+      </div>
 
-  <hr>
+      <div class="output-section">
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="web-component">Web Component</button>
+          <button class="tab-btn" role="tab" aria-selected="false" data-tab="static-html">Static HTML</button>
+        </div>
+        <div class="tab-content active" id="tab-web-component" role="tabpanel">
+          <button class="copy-btn" data-target="code-web-component">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy
+          </button>
+          <pre class="code-block" id="code-web-component"></pre>
+        </div>
+        <div class="tab-content" id="tab-static-html" role="tabpanel">
+          <button class="copy-btn" data-target="code-static-html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            Copy
+          </button>
+          <pre class="code-block" id="code-static-html"></pre>
+        </div>
+      </div>
+    </div>
 
-  <h3>Simple mode</h3>
-  <p>We are required to add audio descriptions to videos as per
-    <success-criterion data-mode="simple" data-number="1.2.3"></success-criterion>
-  </p>
+    <!-- Navigation -->
+    <nav aria-label="Documentation sections">
+      <a href="#installation">Installation</a>
+      <a href="#usage">Usage</a>
+      <a href="#styling">Styling</a>
+      <a href="#development">Development</a>
+    </nav>
 
-  <hr>
+    <!-- Installation -->
+    <section id="installation">
+      <h2>Installation</h2>
 
-  <h3>Detailed mode (default)</h3>
-  <success-criterion data-number="1.4.3"></success-criterion>
+      <h3>CDN</h3>
+      <pre><code>&lt;!-- Minified (recommended for production) --&gt;
+&lt;script src="https://unpkg.com/success-criterion/success-criterion.min.js"&gt;&lt;/script&gt;
 
-  <hr>
+&lt;!-- Or readable version --&gt;
+&lt;script src="https://unpkg.com/success-criterion"&gt;&lt;/script&gt;</code></pre>
 
-  <h3>No data-number specified</h3>
-  <success-criterion></success-criterion>
+      <h3>npm</h3>
+      <pre><code>npm install success-criterion</code></pre>
+      <pre><code>import 'success-criterion'</code></pre>
+    </section>
+
+    <!-- Usage -->
+    <section id="usage">
+      <h2>Usage</h2>
+      <pre><code>&lt;!-- Detailed view (default) --&gt;
+&lt;success-criterion data-number="1.4.3"&gt;&lt;/success-criterion&gt;
+
+&lt;!-- Simple inline reference --&gt;
+&lt;success-criterion data-mode="simple" data-number="1.4.3"&gt;&lt;/success-criterion&gt;
+
+&lt;!-- Tiny link --&gt;
+&lt;success-criterion data-mode="tiny" data-number="1.4.3"&gt;&lt;/success-criterion&gt;</code></pre>
+
+      <h3>Attributes</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Values</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>data-number</code></td>
+            <td>WCAG SC number (e.g., <code>1.4.3</code>)</td>
+            <td>The success criterion to display</td>
+          </tr>
+          <tr>
+            <td><code>data-mode</code></td>
+            <td><code>detailed</code>, <code>simple</code>, <code>tiny</code></td>
+            <td>Controls how much information is shown</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Display Modes</h3>
+      <ul>
+        <li><strong>detailed</strong> (default): Shows title, level, description, special cases, and reference links</li>
+        <li><strong>simple</strong>: Inline link with SC number and title</li>
+        <li><strong>tiny</strong>: Minimal inline link with just the SC number</li>
+      </ul>
+    </section>
+
+    <!-- Styling -->
+    <section id="styling">
+      <h2>Styling</h2>
+      <p>The component inherits <code>font</code>, <code>line-height</code>, and <code>color</code> from its parent. All other values can be customized with CSS custom properties:</p>
+
+      <pre><code>success-criterion {
+  /* Detailed mode */
+  --sc-title-size: 1.125em;       /* Title font size */
+  --sc-level-size: 0.625em;       /* Conformance level badge font size */
+  --sc-level-padding: 1px 4px;    /* Conformance level badge padding */
+  --sc-level-radius: 3px;         /* Conformance level badge border radius */
+  --sc-icon-size: 0.75em;         /* External link icon size */
+  --sc-spacing: 0.5em;            /* Vertical spacing */
+  --sc-indent: 1em;               /* Definition list indent */
+  --sc-gap: 1em;                  /* Reference links gap */
+
+  /* Picker (when no data-number) */
+  --sc-select-padding: 0.25em 0.5em;
+  --sc-select-radius: 3px;
+}</code></pre>
+    </section>
+
+    <!-- Development -->
+    <section id="development">
+      <h2>Development</h2>
+      <pre><code># Start local server
+npm run serve
+
+# Build (fetches latest WCAG data and generates both JS files)
+npm run build
+
+# Run tests
+npm test</code></pre>
+
+      <h3>How It Works</h3>
+      <p>WCAG data is fetched from the <a href="https://www.w3.org/WAI/WCAG22/wcag.json" target="_blank" rel="noopener noreferrer">official W3C WCAG 2.2 JSON</a> and embedded directly in the component. No runtime fetching required.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>MIT License &middot; <a href="https://github.com/davidkreiling/success-criterion-web-component" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+  </footer>
 
   <script src="./success-criterion.js"></script>
+  <script>
+    (function() {
+      // Get WCAG data from the component's global
+      const wcagData = typeof WCAG_DATA !== 'undefined' ? WCAG_DATA : [];
+
+      // Elements
+      const criterionSelect = document.getElementById('criterion-select');
+      const modeSelect = document.getElementById('mode-select');
+      const previewComponent = document.getElementById('preview-component');
+      const codeWebComponent = document.getElementById('code-web-component');
+      const codeStaticHtml = document.getElementById('code-static-html');
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+      const copyBtns = document.querySelectorAll('.copy-btn');
+
+      // Populate criterion select
+      wcagData.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.num;
+        option.textContent = `${item.num} ${item.handle}`;
+        criterionSelect.appendChild(option);
+      });
+
+      // Set default selection
+      criterionSelect.value = '1.4.3';
+
+      // Update preview and code
+      function update() {
+        const num = criterionSelect.value;
+        const mode = modeSelect.value;
+
+        // Update preview component
+        previewComponent.setAttribute('data-number', num);
+        previewComponent.setAttribute('data-mode', mode);
+
+        // Generate web component code
+        const webComponentCode = mode === 'detailed'
+          ? `<success-criterion data-number="${num}"></success-criterion>`
+          : `<success-criterion data-number="${num}" data-mode="${mode}"></success-criterion>`;
+        codeWebComponent.textContent = webComponentCode;
+
+        // Generate static HTML by extracting from shadow DOM
+        // Wait for component to render
+        requestAnimationFrame(() => {
+          const shadowContent = previewComponent.shadowRoot;
+          if (shadowContent) {
+            let html = '';
+            const children = shadowContent.children;
+            for (let child of children) {
+              // Skip style tags
+              if (child.tagName !== 'STYLE') {
+                html += formatHtml(child.outerHTML);
+              }
+            }
+            codeStaticHtml.textContent = html.trim();
+          }
+        });
+      }
+
+      // Simple HTML formatter
+      function formatHtml(html) {
+        // Basic formatting: add newlines after closing tags and indent
+        let formatted = html
+          .replace(/></g, '>\n<')
+          .replace(/>\s+</g, '>\n<');
+
+        // Add indentation
+        const lines = formatted.split('\n');
+        let indent = 0;
+        const result = [];
+
+        for (let line of lines) {
+          line = line.trim();
+          if (!line) continue;
+
+          // Decrease indent for closing tags
+          if (line.startsWith('</') || line.startsWith('</')) {
+            indent = Math.max(0, indent - 1);
+          }
+
+          result.push('  '.repeat(indent) + line);
+
+          // Increase indent for opening tags (not self-closing or void)
+          if (line.match(/^<[a-z][^>]*[^/]>$/i) && !line.match(/^<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)/i)) {
+            indent++;
+          }
+
+          // Decrease after self-contained line with opening and closing
+          if (line.includes('</') && !line.startsWith('</')) {
+            // Line contains both opening and closing, no indent change
+          }
+        }
+
+        return result.join('\n');
+      }
+
+      // Tab switching
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabId = btn.dataset.tab;
+
+          tabBtns.forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          tabContents.forEach(c => c.classList.remove('active'));
+
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          document.getElementById('tab-' + tabId).classList.add('active');
+        });
+      });
+
+      // Copy functionality
+      copyBtns.forEach(btn => {
+        btn.addEventListener('click', async () => {
+          const targetId = btn.dataset.target;
+          const codeEl = document.getElementById(targetId);
+          const text = codeEl.textContent;
+
+          try {
+            await navigator.clipboard.writeText(text);
+            btn.classList.add('copied');
+            btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+
+            setTimeout(() => {
+              btn.classList.remove('copied');
+              btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy`;
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy:', err);
+          }
+        });
+      });
+
+      // Event listeners
+      criterionSelect.addEventListener('change', update);
+      modeSelect.addEventListener('change', update);
+
+      // Initial render
+      update();
+    })();
+  </script>
 </body>
 </html>
