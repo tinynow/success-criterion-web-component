@@ -76,6 +76,13 @@
     html { scroll-behavior: smooth; }
     :target { scroll-margin-top: var(--space-8); }
 
+    /* View transitions */
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 0.2s;
+    }
+
     /* Base */
     body {
       font-family: var(--font-sans);
@@ -117,19 +124,9 @@
       margin: 0 0 var(--space-6);
       line-height: 1.4;
     }
-    .explainer-headline select {
-      font: inherit;
+    #headline-num {
       font-weight: 600;
       color: var(--color-primary);
-      background: var(--color-bg);
-      border: 1px solid var(--color-border-input);
-      border-radius: var(--radius);
-      padding: var(--space-1) var(--space-2);
-      cursor: pointer;
-    }
-    .explainer-headline select:focus {
-      outline: 2px solid var(--color-primary);
-      outline-offset: 1px;
     }
 
     /* Examples grid */
@@ -368,30 +365,21 @@
     <!-- Explainer -->
     <div class="explainer">
       <p class="explainer-headline">
-        Reference success criteria as easy as
-        <select id="explainer-select" aria-label="Select success criterion">
-          <!-- Options populated by JS -->
-        </select>
+        Reference success criteria as easy as <span id="headline-num">1.2.3</span>
       </p>
       <p><a href="#criterion-select">Generate snippets</a> or use the <a href="#installation">web component</a>.</p>
 
       <div class="examples-grid">
         <div class="example-panel">
-          <div class="example-label">Tiny</div>
-          <div class="example-content" id="example-tiny">
-            <!-- Content populated by JS -->
+          <div class="example-label">Inline references</div>
+          <div class="example-content">
+            <p>Your form must meet <success-criterion data-number="1.3.5" data-mode="tiny"></success-criterion> and <success-criterion data-number="3.3.2" data-mode="tiny"></success-criterion>. For better usability, also consider <success-criterion data-number="3.3.3" data-mode="simple"></success-criterion> to help users recover from mistakes.</p>
           </div>
         </div>
         <div class="example-panel">
-          <div class="example-label">Simple</div>
-          <div class="example-content" id="example-simple">
-            <!-- Content populated by JS -->
-          </div>
-        </div>
-        <div class="example-panel">
-          <div class="example-label">Detailed</div>
-          <div class="example-content" id="example-detailed">
-            <!-- Content populated by JS -->
+          <div class="example-label">Full details</div>
+          <div class="example-content">
+            <success-criterion data-number="1.4.3" data-mode="detailed"></success-criterion>
           </div>
         </div>
       </div>
@@ -609,40 +597,27 @@
     document.addEventListener('DOMContentLoaded', highlightAll);
   </script>
 
-  <!-- Explainer functionality -->
+  <!-- Utilities -->
   <script>
-    (function() {
-      const wcagData = typeof WCAG_DATA !== 'undefined' ? WCAG_DATA : [];
-
-      const explainerSelect = document.getElementById('explainer-select');
-      const exampleTiny = document.getElementById('example-tiny');
-      const exampleSimple = document.getElementById('example-simple');
-      const exampleDetailed = document.getElementById('example-detailed');
-
-      let currentNum = '1.2.3';
-
-      // Populate explainer select
-      wcagData.forEach(item => {
-        const option = document.createElement('option');
-        option.value = item.num;
-        option.textContent = item.num;
-        explainerSelect.appendChild(option);
-      });
-      explainerSelect.value = currentNum;
-
-      function updateExamples() {
-        exampleTiny.innerHTML = `<p>Make sure you meet <success-criterion data-number="${currentNum}" data-mode="tiny"></success-criterion> in your implementation.</p>`;
-        exampleSimple.innerHTML = `<p>Review the requirements in <success-criterion data-number="${currentNum}" data-mode="simple"></success-criterion>.</p>`;
-        exampleDetailed.innerHTML = `<success-criterion data-number="${currentNum}" data-mode="detailed"></success-criterion>`;
+    const urlParams = {
+      get(key) {
+        return new URLSearchParams(location.search).get(key);
+      },
+      set(key, value) {
+        const params = new URLSearchParams(location.search);
+        params.set(key, value);
+        history.replaceState(null, '', '?' + params.toString());
       }
+    };
 
-      explainerSelect.addEventListener('change', () => {
-        currentNum = explainerSelect.value;
-        updateExamples();
-      });
-
-      updateExamples();
-    })();
+    // View transition helper with fallback
+    function transition(callback) {
+      if (document.startViewTransition) {
+        document.startViewTransition(callback);
+      } else {
+        callback();
+      }
+    }
   </script>
 
   <!-- Generator functionality -->
@@ -667,40 +642,53 @@
         criterionSelect.appendChild(option);
       });
 
-      // Set default selection
-      criterionSelect.value = '1.4.3';
+      // Get initial values from URL or defaults
+      let initialNum = urlParams.get('sc') || '1.2.3';
+      if (!wcagData.some(item => item.num === initialNum)) initialNum = '1.2.3';
+      criterionSelect.value = initialNum;
+
+      const initialMode = urlParams.get('mode');
+      if (initialMode && ['detailed', 'simple', 'tiny'].includes(initialMode)) {
+        modeSelect.value = initialMode;
+      }
 
       // Update preview and code
-      function update() {
-        const num = criterionSelect.value;
-        const mode = modeSelect.value;
+      function update(useTransition = true) {
+        const doUpdate = () => {
+          const num = criterionSelect.value;
+          const mode = modeSelect.value;
 
-        // Update preview component
-        previewComponent.setAttribute('data-number', num);
-        previewComponent.setAttribute('data-mode', mode);
+          // Update headline
+          document.getElementById('headline-num').textContent = num;
 
-        // Generate web component code
-        const webComponentCode = mode === 'detailed'
-          ? `<success-criterion data-number="${num}"></success-criterion>`
-          : `<success-criterion data-number="${num}" data-mode="${mode}"></success-criterion>`;
-        codeWebComponent.innerHTML = highlightHtml(webComponentCode);
+          // Update preview component
+          previewComponent.setAttribute('data-number', num);
+          previewComponent.setAttribute('data-mode', mode);
 
-        // Generate static HTML by extracting from shadow DOM
-        // Wait for component to render
-        requestAnimationFrame(() => {
-          const shadowContent = previewComponent.shadowRoot;
-          if (shadowContent) {
-            let html = '';
-            const children = shadowContent.children;
-            for (let child of children) {
-              // Skip style tags
-              if (child.tagName !== 'STYLE') {
-                html += formatHtml(child.outerHTML);
+          // Generate web component code
+          const webComponentCode = mode === 'detailed'
+            ? `<success-criterion data-number="${num}"></success-criterion>`
+            : `<success-criterion data-number="${num}" data-mode="${mode}"></success-criterion>`;
+          codeWebComponent.innerHTML = highlightHtml(webComponentCode);
+
+          // Generate static HTML by extracting from shadow DOM
+          // Wait for component to render
+          requestAnimationFrame(() => {
+            const shadowContent = previewComponent.shadowRoot;
+            if (shadowContent) {
+              let html = '';
+              const children = shadowContent.children;
+              for (let child of children) {
+                // Skip style tags
+                if (child.tagName !== 'STYLE') {
+                  html += formatHtml(child.outerHTML);
+                }
               }
+              codeStaticHtml.innerHTML = highlightHtml(html.trim());
             }
-            codeStaticHtml.innerHTML = highlightHtml(html.trim());
-          }
-        });
+          });
+        };
+        useTransition ? transition(doUpdate) : doUpdate();
       }
 
       // Simple HTML formatter
@@ -763,8 +751,15 @@
       });
 
       // Event listeners
-      criterionSelect.addEventListener('change', update);
-      modeSelect.addEventListener('change', update);
+      criterionSelect.addEventListener('change', () => {
+        urlParams.set('sc', criterionSelect.value);
+        update();
+      });
+
+      modeSelect.addEventListener('change', () => {
+        urlParams.set('mode', modeSelect.value);
+        update();
+      });
 
       // Initial render
       update();

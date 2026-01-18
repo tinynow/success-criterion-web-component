@@ -1576,7 +1576,10 @@ class SuccessCriterion extends HTMLElement {
         }
         .sc-note {
             margin-block: var(--sc-spacing);
-            font-style: italic;
+            padding: var(--sc-spacing);
+            border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+            border-radius: var(--sc-level-radius);
+            background: color-mix(in srgb, currentColor 5%, transparent);
         }
         .sc-deprecated {
             margin-block: var(--sc-spacing);
@@ -1650,7 +1653,7 @@ class SuccessCriterion extends HTMLElement {
         // Detailed mode
         const renderDetailBlock = (block) => {
             if (block.type === 'note') {
-                return `<p class="sc-note"><strong>Note:</strong> ${block.handle || block.text || ''}</p>`;
+                return `<p class="sc-note"><strong>Note:</strong> ${block.text || ''}</p>`;
             }
             if (block.type === 'p' && block.text) {
                 return `<p>${block.text}</p>`;
