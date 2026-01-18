@@ -229,43 +229,14 @@
 
     /* Output */
     .output-section { margin-top: var(--space-6); }
-    .output-section details {
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      margin-bottom: var(--space-2);
+    .output-block {
+      margin-bottom: var(--space-4);
     }
-    .output-section details::details-content {
-      display: block;
-      opacity: 0;
-      height: 0;
-      overflow: clip;
-      transition: content-visibility var(--transition) allow-discrete,
-                  opacity var(--transition),
-                  height var(--transition);
-    }
-    .output-section details[open]::details-content {
-      opacity: 1;
-      height: auto;
-    }
-    @starting-style {
-      .output-section details[open]::details-content {
-        opacity: 0;
-        height: 0;
-      }
-    }
-    .output-section summary {
+    .output-block h3 {
+      font-size: var(--text-sm);
       font-weight: 500;
-      padding: 0.625rem var(--space-4);
-      cursor: pointer;
-      background: var(--color-bg-subtle);
-      border-radius: var(--radius);
-    }
-    .output-section details[open] summary {
-      border-radius: var(--radius) var(--radius) 0 0;
-      border-bottom: 1px solid var(--color-border);
-    }
-    .output-section summary:hover {
-      background: var(--color-bg-hover);
+      margin: 0 0 var(--space-2);
+      color: var(--color-text-muted);
     }
 
     /* Code blocks */
@@ -282,7 +253,6 @@
       margin: 0;
     }
     .code-block {
-      border-radius: 0 0 var(--radius) var(--radius);
       white-space: pre-wrap;
       word-break: break-word;
     }
@@ -455,8 +425,8 @@
       </div>
 
       <div class="output-section">
-        <details name="output" open>
-          <summary>Web Component</summary>
+        <div class="output-block">
+          <h3>Web Component</h3>
           <div class="code-wrapper">
             <button class="copy-btn" data-target="code-web-component">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
@@ -464,9 +434,9 @@
             </button>
             <pre class="code-block" id="code-web-component"></pre>
           </div>
-        </details>
-        <details name="output">
-          <summary>Static HTML</summary>
+        </div>
+        <div class="output-block">
+          <h3>Static HTML</h3>
           <div class="code-wrapper">
             <button class="copy-btn" data-target="code-static-html">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
@@ -474,7 +444,7 @@
             </button>
             <pre class="code-block" id="code-static-html"></pre>
           </div>
-        </details>
+        </div>
       </div>
     </div>
 
@@ -649,7 +619,7 @@
       const exampleSimple = document.getElementById('example-simple');
       const exampleDetailed = document.getElementById('example-detailed');
 
-      let currentNum = '1.4.3';
+      let currentNum = '1.2.3';
 
       // Populate explainer select
       wcagData.forEach(item => {
@@ -661,8 +631,8 @@
       explainerSelect.value = currentNum;
 
       function updateExamples() {
-        exampleTiny.innerHTML = `<p>Ensure your design meets <success-criterion data-number="${currentNum}" data-mode="tiny"></success-criterion> before launching.</p>`;
-        exampleSimple.innerHTML = `<p>For accessible text, follow <success-criterion data-number="${currentNum}" data-mode="simple"></success-criterion>.</p>`;
+        exampleTiny.innerHTML = `<p>Make sure you meet <success-criterion data-number="${currentNum}" data-mode="tiny"></success-criterion> in your implementation.</p>`;
+        exampleSimple.innerHTML = `<p>Review the requirements in <success-criterion data-number="${currentNum}" data-mode="simple"></success-criterion>.</p>`;
         exampleDetailed.innerHTML = `<success-criterion data-number="${currentNum}" data-mode="detailed"></success-criterion>`;
       }
 
