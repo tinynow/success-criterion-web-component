@@ -3,279 +3,430 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Success Criterion - WCAG 2.2 Web Component</title>
+  <title>Success Criterion Referencer</title>
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
+    /* Tokens */
+    :root {
+      /* Colors */
+      --color-primary: #e67700;
+      --color-primary-dark: #c26500;
+      --color-accent: #d63384;
+      --color-success: #28a745;
+
+      --color-text: #1a1a1a;
+      --color-text-muted: #555;
+      --color-text-faint: #888;
+
+      --color-bg: white;
+      --color-bg-subtle: #f8f9fa;
+      --color-bg-hover: #e9ecef;
+      --color-bg-code: #f4f4f4;
+
+      --color-border: #dee2e6;
+      --color-border-light: #eee;
+      --color-border-input: #ccc;
+
+      --color-code-bg: #1e1e1e;
+      --color-code-text: #d4d4d4;
+      --color-code-btn: #333;
+      --color-code-btn-hover: #444;
+      --color-code-btn-border: #555;
+
+      /* Syntax highlighting */
+      --hl-tag: #e67700;
+      --hl-attr: #d63384;
+      --hl-string: #98c379;
+      --hl-comment: #6a737d;
+      --hl-keyword: #c678dd;
+      --hl-punctuation: #808080;
+
+      /* Typography */
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'SF Mono', Monaco, 'Cascadia Code', Consolas, monospace;
+
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: 1.5rem;
+      --text-3xl: 2rem;
+
+      /* Spacing */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+
+      /* Radii */
+      --radius-sm: 3px;
+      --radius: 4px;
+      --radius-lg: 8px;
+
+      /* Misc */
+      --transition: 0.25s ease;
     }
+
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    :target { scroll-margin-top: var(--space-8); }
+
+    /* Base */
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: var(--font-sans);
       max-width: 52rem;
       margin: 0 auto;
-      padding: 1.5rem 1rem 4rem;
+      padding: var(--space-6) var(--space-4) var(--space-16);
       line-height: 1.6;
-      color: #1a1a1a;
+      color: var(--color-text);
     }
-    a {
-      color: #0066cc;
-    }
-    a:hover {
-      color: #004999;
-    }
+    a { color: var(--color-primary); }
+    a:hover { color: var(--color-primary-dark); }
 
     /* Header */
     header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: var(--space-8);
     }
     header h1 {
-      margin: 0 0 0.5rem;
-      font-size: 2rem;
+      margin: 0 0 var(--space-2);
+      font-size: var(--text-3xl);
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     header p {
       margin: 0;
-      color: #555;
-      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+
+    /* Explainer */
+    .explainer {
+      margin-bottom: var(--space-8);
+    }
+    .explainer-headline {
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      margin: 0 0 var(--space-6);
+      line-height: 1.4;
+    }
+    .explainer-headline select {
+      font: inherit;
+      font-weight: 600;
+      color: var(--color-primary);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border-input);
+      border-radius: var(--radius);
+      padding: var(--space-1) var(--space-2);
+      cursor: pointer;
+    }
+    .explainer-headline select:focus {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 1px;
+    }
+
+    /* Examples grid */
+    .examples-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+    @media (min-width: 600px) {
+      .examples-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .examples-grid .example-panel:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* Example panel */
+    .example-panel {
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+    }
+    .example-label {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-faint);
+      margin-bottom: var(--space-3);
+    }
+    .example-content {
+      line-height: 1.7;
+    }
+    .example-content p {
+      margin: 0;
     }
 
     /* Generator */
     .generator {
-      background: #f8f9fa;
-      border: 1px solid #dee2e6;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
+      background: var(--color-bg-subtle);
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin-bottom: var(--space-8);
     }
     .generator h2 {
-      margin: 0 0 1rem;
-      font-size: 1.25rem;
+      margin: 0 0 var(--space-4);
+      font-size: var(--text-xl);
+      color: var(--color-primary);
     }
     .controls {
       display: flex;
-      gap: 1rem;
+      gap: var(--space-4);
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: var(--space-6);
     }
     .control-group {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: var(--space-1);
       flex: 1;
       min-width: 200px;
     }
     .control-group label {
-      font-size: 0.875rem;
+      font-size: var(--text-sm);
       font-weight: 500;
-      color: #555;
+      color: var(--color-text-muted);
     }
     .control-group select {
       font: inherit;
-      font-size: 1rem;
-      padding: 0.5rem 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background: white;
-      cursor: pointer;
+      padding: var(--space-2);
+      border: 1px solid var(--color-border-input);
+      border-radius: var(--radius);
+      background: var(--color-bg);
     }
     .control-group select:focus {
-      outline: 2px solid #0066cc;
+      outline: 2px solid var(--color-primary);
       outline-offset: 1px;
     }
 
     /* Preview */
     .preview {
-      background: white;
-      border: 1px solid #dee2e6;
-      border-radius: 4px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
     }
     .preview-label {
-      font-size: 0.75rem;
+      font-size: var(--text-xs);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #888;
-      margin-bottom: 0.75rem;
-    }
-    .preview-content {
-      min-height: 2rem;
+      color: var(--color-text-faint);
+      margin-bottom: var(--space-3);
     }
 
-    /* Output tabs */
-    .output-section {
-      margin-top: 1.5rem;
+    /* Output */
+    .output-section { margin-top: var(--space-6); }
+    .output-section details {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      margin-bottom: var(--space-2);
     }
-    .tabs {
-      display: flex;
-      gap: 0;
-      border-bottom: 1px solid #dee2e6;
-    }
-    .tab-btn {
-      font: inherit;
-      font-size: 0.875rem;
-      padding: 0.5rem 1rem;
-      background: transparent;
-      border: 1px solid transparent;
-      border-bottom: none;
-      border-radius: 4px 4px 0 0;
-      cursor: pointer;
-      color: #555;
-      margin-bottom: -1px;
-    }
-    .tab-btn:hover {
-      color: #1a1a1a;
-    }
-    .tab-btn.active {
-      background: white;
-      border-color: #dee2e6;
-      color: #1a1a1a;
-      font-weight: 500;
-    }
-    .tab-content {
-      display: none;
-      position: relative;
-    }
-    .tab-content.active {
+    .output-section details::details-content {
       display: block;
+      opacity: 0;
+      height: 0;
+      overflow: clip;
+      transition: content-visibility var(--transition) allow-discrete,
+                  opacity var(--transition),
+                  height var(--transition);
     }
-    .code-block {
-      background: #1e1e1e;
-      color: #d4d4d4;
-      border-radius: 0 4px 4px 4px;
-      padding: 1rem;
+    .output-section details[open]::details-content {
+      opacity: 1;
+      height: auto;
+    }
+    @starting-style {
+      .output-section details[open]::details-content {
+        opacity: 0;
+        height: 0;
+      }
+    }
+    .output-section summary {
+      font-weight: 500;
+      padding: 0.625rem var(--space-4);
+      cursor: pointer;
+      background: var(--color-bg-subtle);
+      border-radius: var(--radius);
+    }
+    .output-section details[open] summary {
+      border-radius: var(--radius) var(--radius) 0 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .output-section summary:hover {
+      background: var(--color-bg-hover);
+    }
+
+    /* Code blocks */
+    .code-wrapper { position: relative; }
+    pre, .code-block {
+      background: var(--color-code-bg);
+      color: var(--color-code-text);
+      border-radius: var(--radius);
+      padding: var(--space-4);
       overflow-x: auto;
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
-      font-size: 0.875rem;
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
       line-height: 1.5;
       margin: 0;
+    }
+    .code-block {
+      border-radius: 0 0 var(--radius) var(--radius);
       white-space: pre-wrap;
       word-break: break-word;
     }
-    .copy-btn {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      font: inherit;
-      font-size: 0.75rem;
-      padding: 0.375rem 0.625rem;
-      background: #333;
-      color: #d4d4d4;
-      border: 1px solid #555;
-      border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-    .copy-btn:hover {
-      background: #444;
-    }
-    .copy-btn.copied {
-      background: #28a745;
-      border-color: #28a745;
-      color: white;
-    }
-    .copy-btn svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* Navigation */
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      padding: 1rem 0;
-      border-bottom: 1px solid #eee;
-      margin-bottom: 2rem;
-    }
-    nav a {
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* Documentation sections */
-    section {
-      margin-bottom: 3rem;
-      scroll-margin-top: 1rem;
-    }
-    section h2 {
-      font-size: 1.5rem;
-      margin: 0 0 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #eee;
-    }
-    section h3 {
-      font-size: 1.125rem;
-      margin: 1.5rem 0 0.75rem;
-    }
     code {
-      background: #f4f4f4;
+      background: var(--color-bg-code);
       padding: 0.125rem 0.375rem;
-      border-radius: 3px;
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
       font-size: 0.9em;
-    }
-    pre {
-      background: #1e1e1e;
-      color: #d4d4d4;
-      border-radius: 4px;
-      padding: 1rem;
-      overflow-x: auto;
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Consolas', monospace;
-      font-size: 0.875rem;
-      line-height: 1.5;
     }
     pre code {
       background: none;
       padding: 0;
     }
+    .copy-btn {
+      position: absolute;
+      top: var(--space-2);
+      right: var(--space-2);
+      font: inherit;
+      font-size: var(--text-xs);
+      padding: 0.375rem 0.625rem;
+      background: var(--color-code-btn);
+      color: var(--color-code-text);
+      border: 1px solid var(--color-code-btn-border);
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .copy-btn:hover { background: var(--color-code-btn-hover); }
+    .copy-btn.copied {
+      background: var(--color-success);
+      border-color: var(--color-success);
+      color: white;
+    }
+    .copy-btn svg { width: 14px; height: 14px; }
+
+    /* Syntax highlighting */
+    .hl-tag { color: var(--hl-tag); }
+    .hl-attr { color: var(--hl-attr); }
+    .hl-string { color: var(--hl-string); }
+    .hl-comment { color: var(--hl-comment); font-style: italic; }
+    .hl-keyword { color: var(--hl-keyword); }
+    .hl-punctuation { color: var(--hl-punctuation); }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-border-light);
+      margin-bottom: var(--space-8);
+    }
+    nav a { text-decoration: none; font-weight: 500; }
+    nav a:hover { text-decoration: underline; }
+
+    /* Sections */
+    section {
+      margin-bottom: var(--space-12);
+      scroll-margin-top: var(--space-4);
+    }
+    section h2 {
+      font-size: var(--text-2xl);
+      margin: 0 0 var(--space-4);
+      padding-bottom: var(--space-2);
+      border-bottom: 2px solid var(--color-primary);
+    }
+    section h3 {
+      font-size: var(--text-lg);
+      margin: var(--space-6) 0 var(--space-3);
+    }
+
+    /* Table */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1rem 0;
-      font-size: 0.9375rem;
+      margin: var(--space-4) 0;
     }
     th, td {
       text-align: left;
-      padding: 0.75rem;
-      border-bottom: 1px solid #eee;
+      padding: var(--space-3);
+      border-bottom: 1px solid var(--color-border-light);
     }
     th {
       font-weight: 600;
-      background: #f8f9fa;
+      background: var(--color-bg-subtle);
     }
-    ul, ol {
-      padding-left: 1.5rem;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
+
+    /* Lists */
+    ul, ol { padding-left: var(--space-6); }
+    li { margin-bottom: var(--space-2); }
 
     /* Footer */
     footer {
-      margin-top: 4rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #eee;
+      margin-top: var(--space-16);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border-light);
       text-align: center;
-      color: #666;
-      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
     }
-    footer a {
-      color: inherit;
-    }
+    footer a { color: inherit; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Success Criterion</h1>
-    <p>A web component for displaying WCAG 2.2 success criteria</p>
+    <h1>Success Criterion Referencer</h1>
   </header>
 
   <main>
+    <!-- Explainer -->
+    <div class="explainer">
+      <p class="explainer-headline">
+        Reference success criteria as easy as
+        <select id="explainer-select" aria-label="Select success criterion">
+          <!-- Options populated by JS -->
+        </select>
+      </p>
+      <p><a href="#criterion-select">Generate snippets</a> or use the <a href="#installation">web component</a>.</p>
+
+      <div class="examples-grid">
+        <div class="example-panel">
+          <div class="example-label">Tiny</div>
+          <div class="example-content" id="example-tiny">
+            <!-- Content populated by JS -->
+          </div>
+        </div>
+        <div class="example-panel">
+          <div class="example-label">Simple</div>
+          <div class="example-content" id="example-simple">
+            <!-- Content populated by JS -->
+          </div>
+        </div>
+        <div class="example-panel">
+          <div class="example-label">Detailed</div>
+          <div class="example-content" id="example-detailed">
+            <!-- Content populated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Generator -->
     <div class="generator">
       <h2>Generator</h2>
@@ -304,24 +455,26 @@
       </div>
 
       <div class="output-section">
-        <div class="tabs" role="tablist">
-          <button class="tab-btn active" role="tab" aria-selected="true" data-tab="web-component">Web Component</button>
-          <button class="tab-btn" role="tab" aria-selected="false" data-tab="static-html">Static HTML</button>
-        </div>
-        <div class="tab-content active" id="tab-web-component" role="tabpanel">
-          <button class="copy-btn" data-target="code-web-component">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-            Copy
-          </button>
-          <pre class="code-block" id="code-web-component"></pre>
-        </div>
-        <div class="tab-content" id="tab-static-html" role="tabpanel">
-          <button class="copy-btn" data-target="code-static-html">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-            Copy
-          </button>
-          <pre class="code-block" id="code-static-html"></pre>
-        </div>
+        <details name="output" open>
+          <summary>Web Component</summary>
+          <div class="code-wrapper">
+            <button class="copy-btn" data-target="code-web-component">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy
+            </button>
+            <pre class="code-block" id="code-web-component"></pre>
+          </div>
+        </details>
+        <details name="output">
+          <summary>Static HTML</summary>
+          <div class="code-wrapper">
+            <button class="copy-btn" data-target="code-static-html">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy
+            </button>
+            <pre class="code-block" id="code-static-html"></pre>
+          </div>
+        </details>
       </div>
     </div>
 
@@ -414,21 +567,6 @@
 }</code></pre>
     </section>
 
-    <!-- Development -->
-    <section id="development">
-      <h2>Development</h2>
-      <pre><code># Start local server
-npm run serve
-
-# Build (fetches latest WCAG data and generates both JS files)
-npm run build
-
-# Run tests
-npm test</code></pre>
-
-      <h3>How It Works</h3>
-      <p>WCAG data is fetched from the <a href="https://www.w3.org/WAI/WCAG22/wcag.json" target="_blank" rel="noopener noreferrer">official W3C WCAG 2.2 JSON</a> and embedded directly in the component. No runtime fetching required.</p>
-    </section>
   </main>
 
   <footer>
@@ -436,6 +574,108 @@ npm test</code></pre>
   </footer>
 
   <script src="./success-criterion.js"></script>
+
+  <!-- Syntax highlighting tokenizer -->
+  <script>
+    function highlightHtml(code) {
+      const tokens = [];
+      let i = 0;
+
+      while (i < code.length) {
+        // Comment
+        if (code.slice(i, i + 4) === '<!--') {
+          const end = code.indexOf('-->', i);
+          const comment = code.slice(i, end + 3);
+          tokens.push(`<span class="hl-comment">${escapeHtml(comment)}</span>`);
+          i = end + 3;
+        }
+        // Tag
+        else if (code[i] === '<') {
+          const end = code.indexOf('>', i);
+          const tag = code.slice(i, end + 1);
+          tokens.push(highlightTag(tag));
+          i = end + 1;
+        }
+        // Text
+        else {
+          let end = code.indexOf('<', i);
+          if (end === -1) end = code.length;
+          tokens.push(escapeHtml(code.slice(i, end)));
+          i = end;
+        }
+      }
+
+      return tokens.join('');
+    }
+
+    function highlightTag(tag) {
+      return tag.replace(
+        /(<\/?)([\w-]+)((?:\s+[\w-]+(?:="[^"]*")?)*)\s*(\/?>)/g,
+        (_, open, name, attrs, close) => {
+          const hlAttrs = attrs.replace(
+            /([\w-]+)(="([^"]*)")?/g,
+            (__, attr, hasVal, val) => hasVal
+              ? `<span class="hl-attr">${attr}</span>=<span class="hl-string">"${escapeHtml(val)}"</span>`
+              : `<span class="hl-attr">${attr}</span>`
+          );
+          return `<span class="hl-punctuation">${escapeHtml(open)}</span><span class="hl-tag">${name}</span>${hlAttrs}<span class="hl-punctuation">${escapeHtml(close)}</span>`;
+        }
+      );
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function highlightAll() {
+      document.querySelectorAll('pre code, .code-block').forEach(el => {
+        if (!el.dataset.highlighted) {
+          el.innerHTML = highlightHtml(el.textContent);
+          el.dataset.highlighted = 'true';
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', highlightAll);
+  </script>
+
+  <!-- Explainer functionality -->
+  <script>
+    (function() {
+      const wcagData = typeof WCAG_DATA !== 'undefined' ? WCAG_DATA : [];
+
+      const explainerSelect = document.getElementById('explainer-select');
+      const exampleTiny = document.getElementById('example-tiny');
+      const exampleSimple = document.getElementById('example-simple');
+      const exampleDetailed = document.getElementById('example-detailed');
+
+      let currentNum = '1.4.3';
+
+      // Populate explainer select
+      wcagData.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.num;
+        option.textContent = item.num;
+        explainerSelect.appendChild(option);
+      });
+      explainerSelect.value = currentNum;
+
+      function updateExamples() {
+        exampleTiny.innerHTML = `<p>Ensure your design meets <success-criterion data-number="${currentNum}" data-mode="tiny"></success-criterion> before launching.</p>`;
+        exampleSimple.innerHTML = `<p>For accessible text, follow <success-criterion data-number="${currentNum}" data-mode="simple"></success-criterion>.</p>`;
+        exampleDetailed.innerHTML = `<success-criterion data-number="${currentNum}" data-mode="detailed"></success-criterion>`;
+      }
+
+      explainerSelect.addEventListener('change', () => {
+        currentNum = explainerSelect.value;
+        updateExamples();
+      });
+
+      updateExamples();
+    })();
+  </script>
+
+  <!-- Generator functionality -->
   <script>
     (function() {
       // Get WCAG data from the component's global
@@ -447,8 +687,6 @@ npm test</code></pre>
       const previewComponent = document.getElementById('preview-component');
       const codeWebComponent = document.getElementById('code-web-component');
       const codeStaticHtml = document.getElementById('code-static-html');
-      const tabBtns = document.querySelectorAll('.tab-btn');
-      const tabContents = document.querySelectorAll('.tab-content');
       const copyBtns = document.querySelectorAll('.copy-btn');
 
       // Populate criterion select
@@ -475,7 +713,7 @@ npm test</code></pre>
         const webComponentCode = mode === 'detailed'
           ? `<success-criterion data-number="${num}"></success-criterion>`
           : `<success-criterion data-number="${num}" data-mode="${mode}"></success-criterion>`;
-        codeWebComponent.textContent = webComponentCode;
+        codeWebComponent.innerHTML = highlightHtml(webComponentCode);
 
         // Generate static HTML by extracting from shadow DOM
         // Wait for component to render
@@ -490,7 +728,7 @@ npm test</code></pre>
                 html += formatHtml(child.outerHTML);
               }
             }
-            codeStaticHtml.textContent = html.trim();
+            codeStaticHtml.innerHTML = highlightHtml(html.trim());
           }
         });
       }
@@ -531,23 +769,6 @@ npm test</code></pre>
 
         return result.join('\n');
       }
-
-      // Tab switching
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const tabId = btn.dataset.tab;
-
-          tabBtns.forEach(b => {
-            b.classList.remove('active');
-            b.setAttribute('aria-selected', 'false');
-          });
-          tabContents.forEach(c => c.classList.remove('active'));
-
-          btn.classList.add('active');
-          btn.setAttribute('aria-selected', 'true');
-          document.getElementById('tab-' + tabId).classList.add('active');
-        });
-      });
 
       // Copy functionality
       copyBtns.forEach(btn => {
