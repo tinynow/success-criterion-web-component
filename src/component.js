@@ -99,9 +99,6 @@ class SuccessCriterion extends HTMLElement {
             line-height: inherit;
             color: inherit;
         }
-        a {
-            color: inherit;
-        }
         dl {
             margin-block: var(--sc-spacing);
         }

@@ -1554,9 +1554,6 @@ class SuccessCriterion extends HTMLElement {
             line-height: inherit;
             color: inherit;
         }
-        a {
-            color: inherit;
-        }
         dl {
             margin-block: var(--sc-spacing);
         }
@@ -1566,30 +1563,6 @@ class SuccessCriterion extends HTMLElement {
         }
         dd {
             margin-inline-start: var(--sc-indent);
-        }
-        ul {
-            margin-block: var(--sc-spacing);
-            padding-inline-start: var(--sc-indent);
-        }
-        li {
-            margin-block: calc(var(--sc-spacing) / 2);
-        }
-        .sc-note {
-            margin-block: var(--sc-spacing);
-            padding: var(--sc-spacing);
-            border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
-            border-radius: var(--sc-level-radius);
-            background: color-mix(in srgb, currentColor 5%, transparent);
-        }
-        .sc-deprecated {
-            margin-block: var(--sc-spacing);
-            padding: var(--sc-spacing);
-            border: 1px solid currentColor;
-            border-radius: var(--sc-level-radius);
-            background: color-mix(in srgb, currentColor 10%, transparent);
-        }
-        .sc-deprecated strong {
-            text-transform: uppercase;
         }
         .sc-title {
             font-weight: bold;
@@ -1630,14 +1603,12 @@ class SuccessCriterion extends HTMLElement {
             <line x1="10" y1="14" x2="21" y2="3"></line>
         </svg>`;
 
-        const removedNote = c.num === '4.1.1' ? ' <em>(Removed in WCAG 2.2)</em>' : '';
-
         if (this.mode === 'tiny') {
             this.shadowRoot.innerHTML = `
                 <style>${styles}</style>
                 <a href="${quickrefUrl}" title="${c.num} ${c.handle}" target="_blank" rel="noopener noreferrer">
                     ${c.num}${linkIcon}
-                </a>${removedNote}`;
+                </a>`;
             return;
         }
 
@@ -1646,42 +1617,24 @@ class SuccessCriterion extends HTMLElement {
                 <style>${styles}</style>
                 <a href="${quickrefUrl}" title="${c.num} ${c.handle}" target="_blank" rel="noopener noreferrer">
                     ${c.num} ${c.handle}${linkIcon}
-                </a>${removedNote}`;
+                </a>`;
             return;
         }
 
         // Detailed mode
-        const renderDetailBlock = (block) => {
-            if (block.type === 'note') {
-                return `<p class="sc-note"><strong>Note:</strong> ${block.text || ''}</p>`;
-            }
-            if (block.type === 'p' && block.text) {
-                return `<p>${block.text}</p>`;
-            }
-            const items = block.items || [];
-            if (!items.length) return '';
-            const hasHandles = items.some(item => item.handle);
-            return hasHandles
-                ? `<dl>${items.map(item => `<dt>${item.handle}</dt><dd>${item.text}</dd>`).join('')}</dl>`
-                : `<ul>${items.map(item => `<li>${item.text}</li>`).join('')}</ul>`;
-        };
-
-        const details = (c.details || []).map(renderDetailBlock).join('');
-        const levelBadge = c.level ? `<span class="sc-level">${c.level}</span>` : '';
-        const deprecatedWarning = c.num === '4.1.1'
-            ? `<p class="sc-deprecated"><strong>Deprecated:</strong> Removed in WCAG 2.2 (October 2023). This criterion is no longer required for conformance.</p>`
-            : '';
+        const details = c.details?.[0]?.items?.map(item =>
+            `<dt>${item.handle}</dt><dd>${item.text}</dd>`
+        ).join('') || '';
 
         this.shadowRoot.innerHTML = `
             <style>${styles}</style>
             <div class="sc-detailed">
-                ${deprecatedWarning}
                 <p class="sc-title">
                     ${c.num} ${c.handle}
-                    ${levelBadge}
+                    <span class="sc-level">${c.level}</span>
                 </p>
                 <p class="sc-description">${c.title}</p>
-                ${details}
+                ${details ? `<dl>${details}</dl>` : ''}
                 <div class="references">
                     <a href="${understandingUrl}" target="_blank" rel="noopener noreferrer">
                         Understanding ${c.num}${linkIcon}
